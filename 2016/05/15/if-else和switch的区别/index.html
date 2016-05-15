@@ -102,16 +102,40 @@
 
 
 
-<meta name="description" content="if…else if和switch…case的区别">
+<meta name="description" content="由于工作中遇到了一个判断条件较多的语句，就使用了switch…case语句，后来就研究一下if…else if和switch…case的区别
+##一、if…else if语句if…else if语句会遍历条件分支直到命中条件，然后停止。示例代码：
+if (a&amp;lt;1){
+    x=1;
+} else if (a&amp;gt;2) {
+    x=2;
+} else {
+    x=3;
+};">
 <meta property="og:type" content="article">
 <meta property="og:title" content="if...else if和switch...case的区别">
 <meta property="og:url" content="http://yanyixin.github.io/2016/05/15/if-else和switch的区别/index.html">
 <meta property="og:site_name" content="小怪兽">
-<meta property="og:description" content="if…else if和switch…case的区别">
-<meta property="og:updated_time" content="2016-05-15T13:57:45.000Z">
+<meta property="og:description" content="由于工作中遇到了一个判断条件较多的语句，就使用了switch…case语句，后来就研究一下if…else if和switch…case的区别
+##一、if…else if语句if…else if语句会遍历条件分支直到命中条件，然后停止。示例代码：
+if (a&amp;lt;1){
+    x=1;
+} else if (a&amp;gt;2) {
+    x=2;
+} else {
+    x=3;
+};">
+<meta property="og:updated_time" content="2016-05-15T14:39:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="if...else if和switch...case的区别">
-<meta name="twitter:description" content="if…else if和switch…case的区别">
+<meta name="twitter:description" content="由于工作中遇到了一个判断条件较多的语句，就使用了switch…case语句，后来就研究一下if…else if和switch…case的区别
+##一、if…else if语句if…else if语句会遍历条件分支直到命中条件，然后停止。示例代码：
+if (a&amp;lt;1){
+    x=1;
+} else if (a&amp;gt;2) {
+    x=2;
+} else {
+    x=3;
+};">
 
 
 
@@ -345,7 +369,43 @@
       
 
       
-        <p>if…else if和switch…case的区别</p>
+        <p>   由于工作中遇到了一个判断条件较多的语句，就使用了switch…case语句，后来就研究一下if…else if和switch…case的区别</p>
+<p>##一、if…else if语句<br>if…else if语句会遍历条件分支直到命中条件，然后停止。<br>示例代码：</p>
+<pre><code>if (a&lt;1){
+    x=1;
+} else if (a&gt;2) {
+    x=2;
+} else {
+    x=3;
+};   
+</code></pre><p>##二、switch…else语句</p>
+<p>   switch…else语句在进行比较的时候会生成一个跳转表来指示实际的case分支的地址，而这个跳转表的索引号与switch变量的值是相等的，所以只需要访问对应索引号的表项从而到达定位分支的目的。<br>   示例代码：</p>
+<pre><code>switch(i){
+    case 1: 
+        alert(1);
+        break;
+    case 2: 
+        alert(2);
+        break;
+    case 3: 
+        alert(3);
+        break;
+    case 4: 
+        alert(4);
+        break;
+    case 5: 
+        alert(5);
+        break;
+    case 6: 
+        alert(6);
+        break;
+    defaule:
+        alert(7);
+        break;
+}
+</code></pre><p>讲解：</p>
+<pre><code>- default是如果前面的case都不符合，就执行defaule后面的语句。
+</code></pre><p>##三、区别</p>
 
       
     </div>
