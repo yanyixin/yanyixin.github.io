@@ -108,7 +108,7 @@
 <meta property="og:url" content="http://yanyixin.github.io/2016/05/15/if-else和switch的区别/index.html">
 <meta property="og:site_name" content="小怪兽">
 <meta property="og:description" content="由于工作中遇到了一个判断条件较多的语句，就使用了switch…case语句，后来就研究一下if…else if和switch…case的区别">
-<meta property="og:updated_time" content="2016-05-16T13:24:09.000Z">
+<meta property="og:updated_time" content="2016-05-16T13:27:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="if...else if和switch...case的区别">
 <meta name="twitter:description" content="由于工作中遇到了一个判断条件较多的语句，就使用了switch…case语句，后来就研究一下if…else if和switch…case的区别">
@@ -346,7 +346,7 @@
 
       
         <p>   由于工作中遇到了一个判断条件较多的语句，就使用了switch…case语句，后来就研究一下if…else if和switch…case的区别<br>   <a id="more"></a></p>
-<p>##一、if…else if语句<br>if…else if语句会遍历条件分支直到命中条件，然后停止。<br>示例代码：</p>
+<h2 id="一、if…else-if语句"><a href="#一、if…else-if语句" class="headerlink" title="一、if…else if语句"></a>一、if…else if语句</h2><p>if…else if语句会遍历条件分支直到命中条件，然后停止。<br>示例代码：</p>
 <pre><code>if (a&lt;1){
     x=1;
 } else if (a&gt;2) {
@@ -354,11 +354,9 @@
 } else {
     x=3;
 };   
-</code></pre><p>##二、switch…else语句</p>
-<p>   switch…else语句在进行比较的时候会生成一个跳转表来指示实际的case分支的地址，而这个跳转表的索引号与switch变量的值是相等的，所以只需要访问对应索引号的表项从而到达定位分支的目的。<br>   示例代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(i)&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>: </span><br><span class="line">		alert(<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>: </span><br><span class="line">		alert(<span class="number">2</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">3</span>: </span><br><span class="line">		alert(<span class="number">3</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">4</span>: </span><br><span class="line">		alert(<span class="number">4</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">5</span>: </span><br><span class="line">		alert(<span class="number">5</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">6</span>: </span><br><span class="line">		alert(<span class="number">6</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	defaule:</span><br><span class="line">		alert(<span class="number">7</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>讲解：<br> 1、default是如果前面的case都不符合，就执行defaule后面的语句。</p>
-<p>##三、区别</p>
-
+</code></pre><h2 id="二、switch…else语句"><a href="#二、switch…else语句" class="headerlink" title="二、switch…else语句"></a>二、switch…else语句</h2><p>   switch…else语句在进行比较的时候会生成一个跳转表来指示实际的case分支的地址，而这个跳转表的索引号与switch变量的值是相等的，所以只需要访问对应索引号的表项从而到达定位分支的目的。<br>   示例代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(i)&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>: </span><br><span class="line">		alert(<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>: </span><br><span class="line">		alert(<span class="number">2</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">3</span>: </span><br><span class="line">		alert(<span class="number">3</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">4</span>: </span><br><span class="line">		alert(<span class="number">4</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">5</span>: </span><br><span class="line">		alert(<span class="number">5</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">6</span>: </span><br><span class="line">		alert(<span class="number">6</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	defaule:</span><br><span class="line">		alert(<span class="number">7</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="讲解："><a href="#讲解：" class="headerlink" title="讲解："></a>讲解：</h3><p> 1、default是如果前面的case都不符合，就执行defaule后面的语句。</p>
+<h2 id="三、区别"><a href="#三、区别" class="headerlink" title="三、区别"></a>三、区别</h2>
       
     </div>
 
@@ -553,7 +551,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、if…else-if语句"><span class="nav-number">1.</span> <span class="nav-text">一、if…else if语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、switch…else语句"><span class="nav-number">2.</span> <span class="nav-text">二、switch…else语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#讲解："><span class="nav-number">2.1.</span> <span class="nav-text">讲解：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、区别"><span class="nav-number">3.</span> <span class="nav-text">三、区别</span></a></li></ol></div>
             
           </div>
         </section>
