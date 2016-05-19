@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="if...else,switch," />
+  <meta name="keywords" content="React Native,AsyncStorage," />
 
 
 
@@ -102,19 +102,16 @@
 
 
 
-<meta name="description" content="由于工作中我们会遇到根据不同的条件执行不行的语句，这时就可以使用条件语句来实现。
-   这里来介绍一下在javascript中if…else if和switch…case的原理和区别。">
+<meta name="description" content="AsyncStorage是一个简单的、异步的、持久化的Key-Value存储系统，它对于App来说是全局性的。它用来代替LocalStorage。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript中if...else if和switch...case的用法和区别">
-<meta property="og:url" content="http://yanyixin.github.io/2016/05/15/if-else和switch的区别/index.html">
+<meta property="og:title" content="React Native 之AsyncStorage">
+<meta property="og:url" content="http://yanyixin.github.io/2016/05/19/React Native 之AsyncStorage/index.html">
 <meta property="og:site_name" content="小怪兽">
-<meta property="og:description" content="由于工作中我们会遇到根据不同的条件执行不行的语句，这时就可以使用条件语句来实现。
-   这里来介绍一下在javascript中if…else if和switch…case的原理和区别。">
-<meta property="og:updated_time" content="2016-05-19T10:13:01.000Z">
+<meta property="og:description" content="AsyncStorage是一个简单的、异步的、持久化的Key-Value存储系统，它对于App来说是全局性的。它用来代替LocalStorage。">
+<meta property="og:updated_time" content="2016-05-19T10:47:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript中if...else if和switch...case的用法和区别">
-<meta name="twitter:description" content="由于工作中我们会遇到根据不同的条件执行不行的语句，这时就可以使用条件语句来实现。
-   这里来介绍一下在javascript中if…else if和switch…case的原理和区别。">
+<meta name="twitter:title" content="React Native 之AsyncStorage">
+<meta name="twitter:description" content="AsyncStorage是一个简单的、异步的、持久化的Key-Value存储系统，它对于App来说是全局性的。它用来代替LocalStorage。">
 
 
 
@@ -132,7 +129,7 @@
   };
 </script>
 
-  <title> javascript中if...else if和switch...case的用法和区别 | 小怪兽 </title>
+  <title> React Native 之AsyncStorage | 小怪兽 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -282,7 +279,7 @@
             
             
               
-                javascript中if...else if和switch...case的用法和区别
+                React Native 之AsyncStorage
               
             
           </h1>
@@ -294,8 +291,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-15T21:56:18+08:00" content="2016-05-15">
-              2016-05-15
+            <time itemprop="dateCreated" datetime="2016-05-19T18:45:24+08:00" content="2016-05-19">
+              2016-05-19
             </time>
           </span>
 
@@ -308,8 +305,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/html,生活/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
+                  <a href="/html,生活/React-Native/" itemprop="url" rel="index">
+                    <span itemprop="name">React Native</span>
                   </a>
                 </span>
 
@@ -324,8 +321,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/15/if-else和switch的区别/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/15/if-else和switch的区别/" itemprop="commentsCount"></span>
+                <a href="/2016/05/19/React Native 之AsyncStorage/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/19/React Native 之AsyncStorage/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -348,56 +345,35 @@
       
 
       
-        <p>   由于工作中我们会遇到根据不同的条件执行不行的语句，这时就可以使用条件语句来实现。</p>
-<p>   这里来介绍一下在javascript中if…else if和switch…case的原理和区别。<br>   <a id="more"></a></p>
-<h2 id="一、if…else-if语句"><a href="#一、if…else-if语句" class="headerlink" title="一、if…else if语句"></a>一、if…else if语句</h2><p>if…else if语句是当if中的语句成立时，则执行后面的代码，如果不成立则继续遍历其他的条件。</p>
-<p>要在多组语句中选择一组来执行，可以使用if…else if嵌套语句。</p>
-<p>语法：</p>
-<pre><code>if(条件1){
-    条件1成立时要执行的代码
-} else if(条件2){
-    条件2成立时要执行的代码
-} 
-...
-else if(条件n){
-    条件n成立时要执行的代码
-} else {
-    条件1、2到n都不成立时要执行的代码
-}
-</code></pre><p>示例代码：</p>
-<pre><code>var a = 9;
-if (a&lt;=3){
-  document.write(&quot;良好&quot;);
-} else if (3 &lt; a &lt;= 6) {
-  document.write(&quot;中等&quot;);
-} else {
-  document.write(&quot;优秀&quot;);
-}
-</code></pre><h2 id="二、switch…else语句"><a href="#二、switch…else语句" class="headerlink" title="二、switch…else语句"></a>二、switch…else语句</h2><p>   Switch必须赋初始值，值与每个case值匹配，如果满足的话，就执行该case后的所有语句，并用break语句来阻止运行下一个case。如果所有的case值都不匹配，则执行default后面的语句。</p>
-<p>   switch…else语句在进行比较的时候会生成一个跳转表来指示实际的case分支的地址，而这个跳转表的索引号与switch变量的值是相等的，所以只需要访问对应索引号的表项从而到达定位分支的目的。</p>
-<p>   因为使用了查找表的方式，所以case的条件必须是一个连续的常量。</p>
-<p>   语法：</p>
-<pre><code>switch(常量表达式){
-  case 常量1:
-    执行语句1；
-    break;    
-  case 常量2:
-    执行语句2；
-    break;
-  ...
-  case 常量n:
-    执行语句n；
-    break;
-  default:
-    与case 常量1、case 常量2...case 常量n不同时执行的代码
-}
-</code></pre><p>   示例代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">switch</span>(i)&#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span>: <span class="comment">//条件</span></span><br><span class="line">	alert(<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">break</span>; <span class="comment">//跳出循环</span></span><br><span class="line">  <span class="keyword">case</span> <span class="number">2</span>: </span><br><span class="line">	alert(<span class="number">2</span>);</span><br><span class="line">	<span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">3</span>: </span><br><span class="line">	alert(<span class="number">3</span>);</span><br><span class="line">	<span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">4</span>: </span><br><span class="line">  <span class="keyword">case</span> <span class="number">5</span>: </span><br><span class="line">	alert(“当执行函数一样时，<span class="keyword">case</span>选项可以连写”);</span><br><span class="line">	<span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">6</span>: </span><br><span class="line">	alert(<span class="number">6</span>);</span><br><span class="line">	<span class="keyword">break</span>;</span><br><span class="line">  defaule:</span><br><span class="line">	alert(<span class="number">7</span>);</span><br><span class="line">	<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="三、区别"><a href="#三、区别" class="headerlink" title="三、区别"></a>三、区别</h2><h3 id="1、效率"><a href="#1、效率" class="headerlink" title="1、效率"></a>1、效率</h3><p>当判断语句较少时，建议使用if…else if语句：<br>当判断语句较多时，建议使用switch…case语句：</p>
-<h4 id="if…else-if"><a href="#if…else-if" class="headerlink" title="if…else if"></a>if…else if</h4><p>是逐一的比较条件，直到条件满足为止，当判断条件较少时，执行效率会很快。</p>
-<h4 id="switch…case"><a href="#switch…case" class="headerlink" title="switch…case"></a>switch…case</h4><p>switch…case语句使用了<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91" target="_blank" rel="external">二叉树算法</a>，在进行比较的时候会生成一个跳转表来指示实际的case分支的地址，而这个跳转表的索引号与switch变量的值是相等的，所以只需要访问对应索引号的表项从而到达定位分支的目的。不需要逐个比较，会直接跳转到相应的case，当判断条件较多时，switch…case语句的效率会比较高。</p>
-<h3 id="2、可读性"><a href="#2、可读性" class="headerlink" title="2、可读性"></a>2、可读性</h3><p>当判断语句较多时，如果两个不同条件需要执行的语句相同时，switch…case语句可以合并。上面的示例代码中有写到，这样可读性会更好一些。</p>
-<h3 id="3、比较条件"><a href="#3、比较条件" class="headerlink" title="3、比较条件"></a>3、比较条件</h3><p>switch…case语句只能比较常量<br>if…else if语句可以比较更复杂的表达式</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91" target="_blank" rel="external">维基百科，二叉树</a></p>
+        <p>AsyncStorage是一个简单的、异步的、持久化的Key-Value存储系统，它对于App来说是全局性的。它用来代替LocalStorage。<br> <a id="more"></a></p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="static-getItem-key-string-callback-error-result"><a href="#static-getItem-key-string-callback-error-result" class="headerlink" title="static getItem(key:string , callback:(error,result))"></a>static getItem(key:string , callback:(error,result))</h3><p>根据键来获取值，获取的结果会在回调函数中。</p>
+<p>示例代码：</p>
+<pre><code>AsyncStorage.getItem(&apos;userDetail&apos;,function(err,user){
+  var userDetail = JSON.parse(user);
+  this.setState({
+    isLoaded: true,
+    realAuth: user.realAuthFlag,
+    hasCar: user.cars.length&gt;0
+  });
+});
+</code></pre><h3 id="static-setItem-key-string-value-string-callback-error"><a href="#static-setItem-key-string-value-string-callback-error" class="headerlink" title="static setItem(key:string , value:string , callback:(error))"></a>static setItem(key:string , value:string , callback:(error))</h3><p>设置键值对</p>
+<h3 id="static-multiGet-keys-callback-errors-result"><a href="#static-multiGet-keys-callback-errors-result" class="headerlink" title="static multiGet(keys,callback:(errors,result))"></a>static multiGet(keys,callback:(errors,result))</h3><p>获取多项，其中keys是字符串数组</p>
+<p>示例代码：</p>
+<pre><code>componentDidMount: function() {
+var comp = this;
+AsyncStorage.multiGet([&apos;a&apos;, &apos;b&apos;], function(err, stores) {
+  var a = stores[0][1];
+  var b = JSON.parse(stores[1][1]);
+  comp.setState({
+    isLoaded: true,
+    a: a,
+    realAuthF: b.realAuth,
+    hasCar: b.cars.length&gt;0
+  });
+});
+</code></pre><p>  }</p>
+<h3 id="static-multiSet-keyValuePairs-callback-errors"><a href="#static-multiSet-keyValuePairs-callback-errors" class="headerlink" title="static multiSet(keyValuePairs,callback:(errors))"></a>static multiSet(keyValuePairs,callback:(errors))</h3><p>设置多项，其中keyValuePairs是字符串的二维数组。</p>
+<p>示例代码：</p>
 
       
     </div>
@@ -419,9 +395,9 @@ if (a&lt;=3){
       
         <div class="post-tags">
           
-            <a href="/tags/if-else/" rel="tag">#if...else</a>
+            <a href="/tags/React-Native/" rel="tag">#React Native</a>
           
-            <a href="/tags/switch/" rel="tag">#switch</a>
+            <a href="/tags/AsyncStorage/" rel="tag">#AsyncStorage</a>
           
         </div>
       
@@ -430,17 +406,13 @@ if (a&lt;=3){
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/15/正则表达式/" rel="next" title="正则表达式">
-                <i class="fa fa-chevron-left"></i> 正则表达式
+              <a href="/2016/05/15/if-else和switch的区别/" rel="next" title="javascript中if...else if和switch...case的用法和区别">
+                <i class="fa fa-chevron-left"></i> javascript中if...else if和switch...case的用法和区别
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/19/React Native 之AsyncStorage/" rel="prev" title="React Native 之AsyncStorage">
-                React Native 之AsyncStorage <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -455,10 +427,10 @@ if (a&lt;=3){
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/05/15/if-else和switch的区别/"
-     data-title="javascript中if...else if和switch...case的用法和区别"
+        <div class="ds-share flat" data-thread-key="2016/05/19/React Native 之AsyncStorage/"
+     data-title="React Native 之AsyncStorage"
      data-content=""
-     data-url="http://yanyixin.github.io/2016/05/15/if-else和switch的区别/">
+     data-url="http://yanyixin.github.io/2016/05/19/React Native 之AsyncStorage/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -485,8 +457,8 @@ if (a&lt;=3){
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/15/if-else和switch的区别/"
-           data-title="javascript中if...else if和switch...case的用法和区别" data-url="http://yanyixin.github.io/2016/05/15/if-else和switch的区别/">
+      <div class="ds-thread" data-thread-key="2016/05/19/React Native 之AsyncStorage/"
+           data-title="React Native 之AsyncStorage" data-url="http://yanyixin.github.io/2016/05/19/React Native 之AsyncStorage/">
       </div>
     
   </div>
@@ -597,7 +569,7 @@ if (a&lt;=3){
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、if…else-if语句"><span class="nav-number">1.</span> <span class="nav-text">一、if…else if语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、switch…else语句"><span class="nav-number">2.</span> <span class="nav-text">二、switch…else语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、区别"><span class="nav-number">3.</span> <span class="nav-text">三、区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、效率"><span class="nav-number">3.1.</span> <span class="nav-text">1、效率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if…else-if"><span class="nav-number">3.1.1.</span> <span class="nav-text">if…else if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switch…case"><span class="nav-number">3.1.2.</span> <span class="nav-text">switch…case</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、可读性"><span class="nav-number">3.2.</span> <span class="nav-text">2、可读性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、比较条件"><span class="nav-number">3.3.</span> <span class="nav-text">3、比较条件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#static-getItem-key-string-callback-error-result"><span class="nav-number">1.1.</span> <span class="nav-text">static getItem(key:string , callback:(error,result))</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static-setItem-key-string-value-string-callback-error"><span class="nav-number">1.2.</span> <span class="nav-text">static setItem(key:string , value:string , callback:(error))</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static-multiGet-keys-callback-errors-result"><span class="nav-number">1.3.</span> <span class="nav-text">static multiGet(keys,callback:(errors,result))</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static-multiSet-keyValuePairs-callback-errors"><span class="nav-number">1.4.</span> <span class="nav-text">static multiSet(keyValuePairs,callback:(errors))</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
