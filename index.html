@@ -331,118 +331,12 @@
 
       
         
-          
-            <p>   现在的很多场景中都要求实现垂直居中，当时也尝试了很多办法，下面我们来分析一下为什么实现个垂直居中怎么这么难。<br>   一个效果的实现可以有多种方法，了解每一个方法的原理也可以帮我们更快速的定位在我们需要的场景中需要使用哪种方法。接下来我就把我知道的一些方法和在网上总结的一些办法实现一下，俗话说：好记性不如烂笔头。写下来才能记忆深刻。</p>
-<p>##水平居中<br>   实现水平居中很简单，如果是文本的话，可以用：</p>
-<pre><code>text-align:center;
-</code></pre><p>   如果是盒模型的话，可以用：</p>
-<pre><code>margin:0 auto;
-</code></pre><p>##垂直居中</p>
-<p>以下都使用下面的模块：</p>
-<pre><code>&lt;div class=&quot;box&quot;&gt;
-      &lt;div class=&quot;outer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p>###为什么垂直居中很麻烦：<br>刚开始我们说了，水平居中可以用  margin:0 auto;  那垂直居中也可以把margin-top和margin-bottom设置为auto啊，经过实验：</p>
-<pre><code>.box{
-      width:600px;
-      height:400px;
-      background-color: bisque;
-      margin:100px auto;
-  }
- .outer{
-      background-color: hotpink;
-      margin:auto;
-      height: 200px;
-      width:200px;
-  }
-</code></pre><p><img src="/picture/cssVertical/1.jpg" alt="主页面"><br>然后并不可以，这是为什么呢，在<a href="http://www.w3schools.com/cssref/pr_margin-top.asp" target="_blank" rel="external">W3Cschool</a>上面查到的答案是，当margin-top或者margin-bottom的值为auto时，浏览器计算出来的上外边距为0。所以这个方法不可行。</p>
-<p>那就只能自己来设置固定高度了，垂直居中实现的方法就是让元素上下边和父元素的上下边的距离相等。那我们把这个高度设置一下就可以了。</p>
-<pre><code>.box{
-  height:500px;
-  width:400px;
-}
-
-.outer{
-  margin:200px auto;
-  width:200px;
-   height: 100px;
-   background-color: pink;
-}
-</code></pre><p>###固定宽高：</p>
-<pre><code>.box{
-  position: relative;
-  background-color: bisque;
-  height:500px;
-  width:400px;
-  margin:auto;
-}
-
-.outer{
-  position: absolute;
-  top:50%;
-  left:50%;
-  margin-top: -50px;
-  margin-left:-100px;
-  width:200px;
-  height: 100px;
-  background-color: pink;
-}    
-</code></pre><p>这个运用的是绝对定位的原理，让元素的左上角先定位到父元素的中心点，然后利用margin-top和margin-left的负值是高度和宽度的一半，把元素的中心点和父元素的中心点重合，这样就完成了垂直居中。下面的方法直接计算出了让元素垂直居中的top和left的值。</p>
-<pre><code>.box{
-  position: relative;
-  background-color: bisque;
-  height:500px;
-  width:400px;
-  margin:auto;
-}
-
-.outer{
-  position: absolute;
-  top:calc(50% - 50px);
-  left:calc(50% - 100px);
-  width:200px;
-  height: 100px;
-  background-color: pink;
-}
-</code></pre><p><img src="/picture/cssVertical/2.jpg" alt="垂直居中">        </p>
-<p>###自适应宽高：<br>总以为事情进展的很顺利，可是这个时候又有问题了，当元素里面的内容是动态的时候，那宽高就是不固定的了，那top和left的值也不能是固定的了，如果我们能够设置一个动态变化的值，问题就解决了。问题来了，要怎么设置动态的值呢，这个时候我想到了css3中的transform，transform有一个属性translate(),可以让元素相对于自身的宽度和高度移动，而不用知道元素的宽高。</p>
-<pre><code>.box{
-  position: relative;
-  background-color: bisque;
-  height:500px;
-  width:400px;
-  margin:auto;
-}
-
-.outer{
-  position: absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background-color: pink;
-}
-</code></pre><p><img src="/picture/cssVertical/3.jpg" alt="垂直居中"><br><img src="/picture/cssVertical/4.jpg" alt="垂直居中">    </p>
-<p>这样的话，在内容宽高变换的情况下，也可以实现垂直居中了。</p>
-<p>###Flexbox<br>Flexbox可以很好的解决垂直居中，简直是神器，下面我们来试验一下。</p>
-<pre><code>.box{
-  background-color: bisque;
-  height:500px;
-  width:400px;
-  margin:auto;
-  display: flex;
-  align-items: center;
-  justify-content:center;
-}
-
-.outer{
-  background-color: pink;
-}
-</code></pre><p><img src="/picture/cssVertical/3.jpg" alt="垂直居中">    </p>
-<p>Flexbox虽说是很好的垂直居中的解决方法，不过也要考虑一下它的兼容性问题。</p>
-<p><img src="/picture/cssVertical/5.jpg" alt="Flexbox">    </p>
-<p>##总结<br>实现垂直居中的办法有很多，不过要了解每一个方法的原理，这样才能快速定位符合自己需求的方法。<br>由于本人水平有限，考虑的不够周到，如果哪里有错误，还请指出来。</p>
-
-          
+          <p>   现在的很多场景中都要求实现垂直居中，当时也尝试了很多办法，下面我们来分析一下为什么实现个垂直居中怎么这么难。<br>   一个效果的实现可以有多种方法，了解每一个方法的原理也可以帮我们更快速的定位在我们需要的场景中需要使用哪种方法。接下来我就把我知道的一些方法和在网上总结的一些办法实现一下，俗话说：好记性不如烂笔头。写下来才能记忆深刻。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/05/css实现水平垂直居中/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
