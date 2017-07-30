@@ -93,22 +93,22 @@
 
 
 
-<meta name="description" content="我们经常遇到的问题有实现 css 垂直居中，一个效果的实现可以有多种方法，了解每一个方法的原理也可以帮我们更快速的定位在我们需要的场景中需要使用哪种方法。接下来我就把我知道的一些方法和在网上总结的一些办法实现一下，俗话说：好记性不如烂笔头。写下来才能记忆深刻。">
+<meta name="description" content="JavaScript的原型是JavaScript中的重要一环，根据网上的一些资料和自己的理解，对原型做一个解释。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS 实现内容垂直居中">
-<meta property="og:url" content="http://yanmeng.me/2016/06/13/CSS-实现内容垂直居中/index.html">
+<meta property="og:title" content="理解JavaScript原型">
+<meta property="og:url" content="http://yanmeng.me/2017/07/30/理解JavaScript原型/index.html">
 <meta property="og:site_name" content="闫闫的 Blog">
-<meta property="og:description" content="我们经常遇到的问题有实现 css 垂直居中，一个效果的实现可以有多种方法，了解每一个方法的原理也可以帮我们更快速的定位在我们需要的场景中需要使用哪种方法。接下来我就把我知道的一些方法和在网上总结的一些办法实现一下，俗话说：好记性不如烂笔头。写下来才能记忆深刻。">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-eee9e72c4e53e06e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-d5a5bc97bf101ee0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-d935c285533b4c27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-cf71c3fc114e94a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-b3e4fa77e390df94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-15T13:28:42.000Z">
+<meta property="og:description" content="JavaScript的原型是JavaScript中的重要一环，根据网上的一些资料和自己的理解，对原型做一个解释。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-8c18d7417b86f024.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-056169526e257b50.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-2f4d857269574c20.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-fc467a193bd8d7bc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-be72bc34903ea2ef.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-30T12:43:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 实现内容垂直居中">
-<meta name="twitter:description" content="我们经常遇到的问题有实现 css 垂直居中，一个效果的实现可以有多种方法，了解每一个方法的原理也可以帮我们更快速的定位在我们需要的场景中需要使用哪种方法。接下来我就把我知道的一些方法和在网上总结的一些办法实现一下，俗话说：好记性不如烂笔头。写下来才能记忆深刻。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1561693-eee9e72c4e53e06e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="理解JavaScript原型">
+<meta name="twitter:description" content="JavaScript的原型是JavaScript中的重要一环，根据网上的一些资料和自己的理解，对原型做一个解释。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1561693-8c18d7417b86f024.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yanmeng.me/2016/06/13/CSS-实现内容垂直居中/"/>
+  <link rel="canonical" href="http://yanmeng.me/2017/07/30/理解JavaScript原型/"/>
 
 
 
 
 
-  <title>CSS 实现内容垂直居中 | 闫闫的 Blog</title>
+  <title>理解JavaScript原型 | 闫闫的 Blog</title>
   
 
 
@@ -291,7 +291,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yanmeng.me/2016/06/13/CSS-实现内容垂直居中/">
+    <link itemprop="mainEntityOfPage" href="http://yanmeng.me/2017/07/30/理解JavaScript原型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Meng Yan">
@@ -308,7 +308,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">CSS 实现内容垂直居中</h2>
+          <h2 class="post-title" itemprop="name headline">理解JavaScript原型</h2>
         
 
         <div class="post-meta">
@@ -320,8 +320,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-13T00:00:00+08:00">
-                2016-06-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-30T20:42:42+08:00">
+                2017-07-30
               </time>
             
 
@@ -339,9 +339,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/06/13/CSS-实现内容垂直居中/#comments" itemprop="discussionUrl">
+                <a href="/2017/07/30/理解JavaScript原型/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/06/13/CSS-实现内容垂直居中/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/07/30/理解JavaScript原型/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -349,7 +349,7 @@
 
           
           
-             <span id="/2016/06/13/CSS-实现内容垂直居中/" class="leancloud_visitors" data-flag-title="CSS 实现内容垂直居中">
+             <span id="/2017/07/30/理解JavaScript原型/" class="leancloud_visitors" data-flag-title="理解JavaScript原型">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -377,25 +377,37 @@
       
 
       
-        <p>我们经常遇到的问题有实现 <code>css</code> 垂直居中，一个效果的实现可以有多种方法，了解每一个方法的原理也可以帮我们更快速的定位在我们需要的场景中需要使用哪种方法。接下来我就把我知道的一些方法和在网上总结的一些办法实现一下，俗话说：好记性不如烂笔头。写下来才能记忆深刻。</p>
-<a id="more"></a>
-<p>首先： 实现水平居中有以下方法。如果是内联元素，设置父元素 <code>text-align :center</code>；<br>如果是块状元素：<code>margin: auto</code>;</p>
-<p>接下来看垂直居中。</p>
-<p>44年前我们把人送上月球，但在CSS中我们仍然不能很好实现垂直居中——@James Anderson</p>
-<p>1、文本水平垂直居中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.outer&#123;</div><div class="line">  background-color: hotpink;</div><div class="line">  margin:auto;</div><div class="line">  height: 100px;</div><div class="line">  width:200px;</div><div class="line">&#125;</div><div class="line">.text&#123;</div><div class="line">  text-align: center;</div><div class="line">  line-height: 100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1561693-eee9e72c4e53e06e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>2、盒模型水平垂直居中</p>
-<p>垂直居中在现在的需求上还是经常需要的，看似简单，可是当涉及到尺寸不固定的情况时，就变的非常棘手了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;box&quot;&gt;</div><div class="line">  &lt;div class=&quot;outer&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>绝对定位的方法：</p>
-<p>要求具有固定的宽度和高度：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.outer&#123;</div><div class="line">  position: absolute;</div><div class="line">  top:50%;</div><div class="line">  left:50%;</div><div class="line">  margin-left: -100px;</div><div class="line">  margin-top: -50px;</div><div class="line">  width:200px;</div><div class="line">  height: 100px;</div><div class="line">  background-color: pink;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>先把元素的左上角固定在正中心，然后再利用 <code>margin</code> 把左上角向左方和上方移动本身宽度的一半，这样就实现了垂直居中。<br>分析：需要给元素一个固定的尺寸，灵活性不是很高。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1561693-d5a5bc97bf101ee0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>如果可以让元素按照自身尺寸的百分比来移动，那元素的尺寸就可以不用固定了。于是采用了 <code>transform</code> 中的 <code>translate( )</code> ；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.outer&#123;</div><div class="line">  position: absolute;</div><div class="line">  top:50%;</div><div class="line">  left:50%;</div><div class="line">  transform:translate(-50%,-50%);</div><div class="line">  background-color: hotpink;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1561693-d935c285533b4c27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>绝对定位不是一个很好的选择，因为对整体布局的影响还是很大的。</p>
-<p>Flex布局<br>通过 <code>Flex</code> 布局可以很轻松的实现垂直居中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">  display: flex;</div><div class="line">  width:800px;</div><div class="line">  height:500px;</div><div class="line">  background-color: bisque;</div><div class="line">  margin:100px auto;</div><div class="line">&#125;</div><div class="line">.outer&#123;</div><div class="line">  background-color: hotpink;</div><div class="line">  margin:auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1561693-cf71c3fc114e94a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><code>flex</code> 的兼容性<img src="http://upload-images.jianshu.io/upload_images/1561693-b3e4fa77e390df94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <p>JavaScript的<code>原型</code>是JavaScript中的重要一环，根据网上的一些资料和自己的理解，对<code>原型</code>做一个解释。<br><a id="more"></a></p>
+<p>##prototype属性的引入<br><code>对象</code>可以使用<code>new</code>操作符后跟一个<code>构造函数</code>来创建的。构造函数如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function Person(age) &#123;</div><div class="line">  this.name = &quot;meng&quot;;</div><div class="line">  this.age = age;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>构造函数始终都应该以一个大写字母开头，而非构造函数则应该以一个小写字母开头。要创建一个新的实例对象的时候，可以使用<code>new</code>操作符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var person1 = new Person(12);</div><div class="line">var person2 = new Person(13);</div></pre></td></tr></table></figure>
+<p>在构建的两个实例对象的时候，person1和person2有一个共有属性name;当改变其中一个实例对象的name的时候，另一个不会发生改变。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">person1.name = &quot;jing&quot;;</div><div class="line">console.log(person1.name);  //jing</div><div class="line">console.log(person2.name);  //meng</div></pre></td></tr></table></figure>
+<p>每个实例对象都有自己的属性和方法的副本，改变其中的一个并不会影响另一个，这就造成了资源和空间的浪费，也无法实现数据的共享。</p>
+<p>为了解决上面的问题，作者Brendan Eich决定使用构造函数设置一个<code>prototype</code>属性，可以让所有对象实例共享它所包含的属性和方法。</p>
+<p>上面的例子可以写成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Person(age) &#123;</div><div class="line">  this.age = age;</div><div class="line">&#125;</div><div class="line">Person.prototype.name = &quot;meng&quot;;</div><div class="line"></div><div class="line">var person1 = new Person(12);</div><div class="line">var person2 = new Person(13);</div><div class="line">Person.prototype.name = &quot;jing&quot;;</div><div class="line">console.log(person1.name);  //jing</div><div class="line">console.log(person2.name);  //jing</div></pre></td></tr></table></figure>
+<p>这时person1和person2就共享了<code>Person.prototype.name</code>这个属性，只要其中一个改变，就会同时影响两个实例对象。</p>
+<p>##原型是什么<br>只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个prototype属性，这个属性指向函数的原型对象。所有原型对象都会获得一个指向<code>prototype</code>对象的<code>constructor</code>属性。如图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-8c18d7417b86f024.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="14805248662081.jpg"><br>拿上面的例子来说，Person.prototype.constructor又指向了Person。</p>
+<p>####<em>proto</em>、prototype和constructor<br>每一个生成的对象都有一个<code>__proto__</code>属性，当调用构造函数创建一个新的实例之后，<code>__proto__</code>就指向了构造函数的原型对象，即构造函数的<code>prototype</code>属性。</p>
+<p>下图所示：当定义person1是一个数组时，person1自带一个<code>__proto__</code>属性。<br><img src="http://upload-images.jianshu.io/upload_images/1561693-056169526e257b50.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="14805256492639.jpg"></p>
+<p>下图所示：当定义Person构造函数时，Person自带一个<code>prototype</code>属性。<code>prototype</code>属性自带一个<code>constructor</code>属性，至于其他的属性，都是从Object继承而来的。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-2f4d857269574c20.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="14805260237657.jpg"><br>下图所示：当<code>new</code>一个实例对象person1时，<code>_proto_</code>就指向了构造函数Person的原型对象，即构造函数的<code>prototype</code>属性。可以对比一个person1的<code>_proto_</code>属性在实例化之前和之后的变化。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-fc467a193bd8d7bc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="14805259038416.jpg"></p>
+<p>下图是展示了Person构造函数、Person的原型属性以及Person现有的两个实例之间的关系。<br><img src="http://upload-images.jianshu.io/upload_images/1561693-be72bc34903ea2ef.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="14805245325304.jpg"></p>
+<p>##new运算符的工作原理<br>new 运算符接受一个函数<code>F</code>及其参数：<code>new F(arguments...)</code>。这一过程分为三步：</p>
+<p>创建类的实例。这步是把一个空的对象的<code>__proto__</code>属性设置为 <code>F.prototype</code>。<br>初始化实例。函数<code>F</code>被传入参数并调用，关键字<code>this</code>被设定为该实例。<br>返回实例。<br>现在我们知道了<code>new</code>是怎么工作的，我们可以用JS代码实现一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function New (f) &#123;</div><div class="line">    var n = &#123; &apos;__proto__&apos;: f.prototype &#125;; /*第一步*/</div><div class="line">    return function () &#123;</div><div class="line">        f.apply(n, arguments);            /*第二步*/</div><div class="line">        return n;                         /*第三步*/</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>##hasOwnProperty函数</p>
+<p><code>hasOwnProperty</code>用来判断该属性属于实例自定义的属性而不是原型链上的属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Person(age) &#123;</div><div class="line">  this.age = age;</div><div class="line">&#125;</div><div class="line">Person.prototype.name = &quot;meng&quot;;</div><div class="line"></div><div class="line">var person1 = new Person(12);</div><div class="line">person1.hasOwnProperty(&apos;age&apos;);  //true</div><div class="line">person1.hasOwnProperty(&apos;name&apos;); //false</div></pre></td></tr></table></figure>
+<p>##JavaScript引擎如何来查找属性</p>
+<p>以下代码展示了JS引擎如何查找属性:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function getProperty(obj, prop) &#123;</div><div class="line">    if (obj.hasOwnProperty(prop))</div><div class="line">        return obj[prop]</div><div class="line"></div><div class="line">    else if (obj.__proto__ !== null)</div><div class="line">        return getProperty(obj.__proto__, prop)</div><div class="line"></div><div class="line">    else</div><div class="line">        return undefined</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过上面的代码可以看出来，js先查找自身有没有该属性，如果没有的话，就查找<strong>proto</strong>属性指向的原型对象中有没有，如果没有的话，就去查它的原型的原型中有没有,一直到原型链的最顶端为止。</p>
+<p>参考：<br><a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html" target="_blank" rel="external">阮一峰:Javascript继承机制的设计思想</a><br><a href="http://www.jianshu.com/p/9d6aaba12a63" target="_blank" rel="external">JavaScript的原型机制</a></p>
 
       
     </div>
@@ -453,15 +465,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/07/30/了解Retina屏幕和Retina屏幕下图片的显示问题/" rel="next" title="了解Retina屏幕和Retina屏幕下图片的显示问题">
+                <i class="fa fa-chevron-left"></i> 了解Retina屏幕和Retina屏幕下图片的显示问题
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/14/Icomoon-的使用/" rel="prev" title="Icomoon 的使用">
-                Icomoon 的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -762,9 +774,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yanmeng.me/2016/06/13/CSS-实现内容垂直居中/';
-          this.page.identifier = '2016/06/13/CSS-实现内容垂直居中/';
-          this.page.title = 'CSS 实现内容垂直居中';
+          this.page.url = 'http://yanmeng.me/2017/07/30/理解JavaScript原型/';
+          this.page.identifier = '2017/07/30/理解JavaScript原型/';
+          this.page.title = '理解JavaScript原型';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://闫闫.disqus.com/embed.js';
