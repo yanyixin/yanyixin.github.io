@@ -8,7 +8,9 @@ tags:
    `retina`的原意是`视网膜`，retina屏就是通过技术把更多的像素点压缩到屏幕里，使肉眼无法识别屏幕上的单个像素。
 
 那么问题来了，如何分辨retina屏呢？
+
 <!--more-->
+
 首先了解几个名词：
 ##设备像素比：window.devicePixelRatio（简称：dpr）
 
