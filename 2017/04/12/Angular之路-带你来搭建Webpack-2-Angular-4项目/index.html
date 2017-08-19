@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Angular," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://oux6kzfrp.bkt.clouddn.com/aoteman.jpg?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="上个月Angular发布了4.0.0版本，少年们，赶快学起来吧，这篇文章带领大家搭建一个简单的Angular应用，会尽量详细的把每个点都解释到。 首先我选择了用webpack2来作为打包工具，选择wenpack2的理由不言而喻。这里假设你已经了解webpack2的一些原理，下面开始来学习吧～ 详细代码可以看我的git项目">
+<meta name="keywords" content="Angular">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular之路--带你来搭建Webpack 2 + Angular 4项目">
+<meta property="og:url" content="http://yanmeng.me/2017/04/12/Angular之路-带你来搭建Webpack-2-Angular-4项目/index.html">
+<meta property="og:site_name" content="position_柚子君">
+<meta property="og:description" content="上个月Angular发布了4.0.0版本，少年们，赶快学起来吧，这篇文章带领大家搭建一个简单的Angular应用，会尽量详细的把每个点都解释到。 首先我选择了用webpack2来作为打包工具，选择wenpack2的理由不言而喻。这里假设你已经了解webpack2的一些原理，下面开始来学习吧～ 详细代码可以看我的git项目">
+<meta property="og:image" content="https://dn-mhke0kuv.qbox.me/9b59abb62c90ea6f70e0.png">
+<meta property="og:image" content="https://dn-mhke0kuv.qbox.me/01070446b15d18534a3d">
+<meta property="og:image" content="https://dn-mhke0kuv.qbox.me/3ec563d462c569bfe32c">
+<meta property="og:updated_time" content="2017-08-19T07:40:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular之路--带你来搭建Webpack 2 + Angular 4项目">
+<meta name="twitter:description" content="上个月Angular发布了4.0.0版本，少年们，赶快学起来吧，这篇文章带领大家搭建一个简单的Angular应用，会尽量详细的把每个点都解释到。 首先我选择了用webpack2来作为打包工具，选择wenpack2的理由不言而喻。这里假设你已经了解webpack2的一些原理，下面开始来学习吧～ 详细代码可以看我的git项目">
+<meta name="twitter:image" content="https://dn-mhke0kuv.qbox.me/9b59abb62c90ea6f70e0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yanmeng.me/2017/04/12/Angular之路-带你来搭建Webpack-2-Angular-4项目/"/>
+
+
+
+
+
+  <title>Angular之路--带你来搭建Webpack 2 + Angular 4项目 | position_柚子君</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f504c7f6160a763bcac725ebe10164ab";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">position_柚子君</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yanmeng.me/2017/04/12/Angular之路-带你来搭建Webpack-2-Angular-4项目/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Meng Yan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oux6kzfrp.bkt.clouddn.com/blog/avatarIMG_3716.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="position_柚子君">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Angular之路--带你来搭建Webpack 2 + Angular 4项目</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-12T00:00:00+08:00">
+                2017-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/12/Angular之路-带你来搭建Webpack-2-Angular-4项目/" class="leancloud_visitors" data-flag-title="Angular之路--带你来搭建Webpack 2 + Angular 4项目">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上个月<code>Angular</code>发布了<code>4.0.0</code>版本，少年们，赶快学起来吧，这篇文章带领大家搭建一个简单的<code>Angular</code>应用，会尽量详细的把每个点都解释到。</p>
+<p>首先我选择了用<code>webpack2</code>来作为打包工具，选择<code>wenpack2</code>的理由不言而喻。这里假设你已经了解<code>webpack2</code>的一些原理，下面开始来学习吧～</p>
+<p>详细代码可以看我的<a href="https://github.com/yanyixin/angular2-todolist" target="_blank" rel="external">git项目</a></p>
+<a id="more"></a>
+<h2 id="一、配置-webpack"><a href="#一、配置-webpack" class="headerlink" title="一、配置 webpack"></a>一、配置 webpack</h2><p>首先新建一个项目文件夹</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir angular-dream</div><div class="line">cd angular-dream</div></pre></td></tr></table></figure>
+<p>在控制台中输入命令 <code>npm init</code> ，创建 <code>package.json</code> 文件。如图：</p>
+<p><img src="https://dn-mhke0kuv.qbox.me/9b59abb62c90ea6f70e0.png" alt="创建package.json文件"><br>在控制台中可以一路回车。当然，这里我命名了项目的名称为 <code>angular-dream</code> ，还有一些其他的信息。</p>
+<p>创建好之后用编辑器（我使用的是webstorm）打开这个项目。</p>
+<h3 id="package-json-文件的配置"><a href="#package-json-文件的配置" class="headerlink" title="package.json 文件的配置"></a>package.json 文件的配置</h3><p>关于 <code>package.json</code> 文件里面的一些参数的含义，可以参考<a href="http://javascript.ruanyifeng.com/nodejs/packagejson.html#toc1" target="_blank" rel="external">阮一峰老师写的这篇文章</a> 。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"angular2-dream"</span>,</div><div class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</div><div class="line">  <span class="string">"description"</span>: <span class="string">"Hello Angular2"</span>,</div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"start"</span>: <span class="string">"webpack-dev-server --config config/webpack.dev.js --progress"</span>,</div><div class="line">    <span class="string">"test"</span>: <span class="string">"karma start"</span>,</div><div class="line">    <span class="string">"build"</span>: <span class="string">"webpack --config config/webpack.dev.js --progress --profile --bail"</span>,</div><div class="line">    <span class="string">"webpack"</span>: <span class="string">"webpack"</span>,</div><div class="line">    <span class="string">"rimraf"</span>: <span class="string">"rimraf"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"keywords"</span>: [</div><div class="line">    <span class="string">"angular2"</span>,</div><div class="line">    <span class="string">"webpack"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"author"</span>: <span class="string">"yanmeng@hujiang.com"</span>,</div><div class="line">  <span class="string">"license"</span>: <span class="string">"MIT"</span>,</div><div class="line">  <span class="string">"dependencies"</span>: &#123;</div><div class="line">    <span class="string">"@angular/animations"</span>: <span class="string">"~4.0.1"</span>,</div><div class="line">    <span class="string">"@angular/common"</span>: <span class="string">"~4.0.0"</span>,</div><div class="line">    <span class="string">"@angular/compiler"</span>: <span class="string">"~4.0.0"</span>,</div><div class="line">    <span class="string">"@angular/core"</span>: <span class="string">"^4.0.1"</span>,</div><div class="line">    <span class="string">"@angular/forms"</span>: <span class="string">"~4.0.1"</span>,</div><div class="line">    <span class="string">"@angular/http"</span>: <span class="string">"~4.0.1"</span>,</div><div class="line">    <span class="string">"core-js"</span>: <span class="string">"^2.4.1"</span>,</div><div class="line">    <span class="string">"rxjs"</span>: <span class="string">"5.2.0"</span>,</div><div class="line">    <span class="string">"zone.js"</span>: <span class="string">"^0.8.5"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"devDependencies"</span>: &#123;</div><div class="line">    <span class="string">"reflect-metadata"</span>: <span class="string">"^0.1.10"</span>,</div><div class="line">    <span class="string">"html-webpack-plugin"</span>: <span class="string">"^2.28.0"</span>,</div><div class="line">    <span class="string">"@angular/compiler-cli"</span>: <span class="string">"~4.0.1"</span>,</div><div class="line">    <span class="string">"@angular/platform-browser"</span>: <span class="string">"~4.0.1"</span>,</div><div class="line">    <span class="string">"@angular/platform-browser-dynamic"</span>: <span class="string">"~4.0.1"</span>,</div><div class="line">    <span class="string">"@angular/platform-server"</span>: <span class="string">"~4.0.1"</span>,</div><div class="line">    <span class="string">"@angular/router"</span>: <span class="string">"~4.0.1"</span>,</div><div class="line">    <span class="string">"@angularclass/hmr"</span>: <span class="string">"^1.2.2"</span>,</div><div class="line">    <span class="string">"@angularclass/hmr-loader"</span>: <span class="string">"^3.0.2"</span>,</div><div class="line">    <span class="string">"@types/jasmine"</span>: <span class="string">"^2.5.43"</span>,</div><div class="line">    <span class="string">"@types/node"</span>: <span class="string">"^6.0.45"</span>,</div><div class="line">    <span class="string">"angular2-template-loader"</span>: <span class="string">"^0.6.0"</span>,</div><div class="line">    <span class="string">"awesome-typescript-loader"</span>: <span class="string">"^3.0.4"</span>,</div><div class="line">    <span class="string">"bootstrap"</span>: <span class="string">"^4.0.0-alpha.6"</span>,</div><div class="line">    <span class="string">"bootstrap-sass"</span>: <span class="string">"^3.3.7"</span>,</div><div class="line">    <span class="string">"css-loader"</span>: <span class="string">"^0.26.1"</span>,</div><div class="line">    <span class="string">"extract-text-webpack-plugin"</span>: <span class="string">"2.0.0-beta.5"</span>,</div><div class="line">    <span class="string">"file-loader"</span>: <span class="string">"^0.9.0"</span>,</div><div class="line">    <span class="string">"font-awesome"</span>: <span class="string">"^4.7.0"</span>,</div><div class="line">    <span class="string">"html-loader"</span>: <span class="string">"^0.4.3"</span>,</div><div class="line">    <span class="string">"postcss-loader"</span>: <span class="string">"^1.3.1"</span>,</div><div class="line">    <span class="string">"raw-loader"</span>: <span class="string">"^0.5.1"</span>,</div><div class="line">    <span class="string">"style-loader"</span>: <span class="string">"^0.13.1"</span>,</div><div class="line">    <span class="string">"to-string-loader"</span>: <span class="string">"^1.1.5"</span>,</div><div class="line">    <span class="string">"ts-helpers"</span>: <span class="string">"^1.1.2"</span>,</div><div class="line">    <span class="string">"url-loader"</span>: <span class="string">"^0.5.7"</span>,</div><div class="line">    <span class="string">"webpack"</span>: <span class="string">"2.2.0"</span>,</div><div class="line">    <span class="string">"webpack-dev-server"</span>: <span class="string">"2.2.0-rc.0"</span>,</div><div class="line">    <span class="string">"webpack-merge"</span>: <span class="string">"^2.4.0"</span>,</div><div class="line">    <span class="string">"typescript"</span>: <span class="string">"^2.2.2"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><code>@angular/compiler</code> - Angular的模板编译器。 它会理解模板，并且把模板转化成代码，以供应用程序运行和渲染。 开发人员通常不会直接跟这个编译器打交道，而是通过platform-browser-dynamic或离线模板编译器间接使用它。</li>
+<li><code>@angular/platform-browser</code> - 与DOM和浏览器相关的每样东西，特别是帮助往DOM中渲染的那部分。 这个包还包含bootstrapStatic方法，用来引导那些在产品构建时需要离线预编译模板的应用程序</li>
+<li><code>@angular/platform-browser-dynamic</code> - 为应用程序提供一些提供商和bootstrap方法，以便在客户端编译模板。不要用于离线编译。 我们使用这个包在开发期间引导应用，以及引导plunker中的范例。</li>
+<li><code>core-js</code> - 为全局上下文(window)打的补丁，提供了ES2015(ES6)的很多基础特性。 我们也可以把它换成提供了相同内核API的其它填充库。 一旦所有的“主流浏览器”都实现了这些API，这个依赖就可以去掉了。</li>
+<li><code>reflect-metadata</code> - 一个由Angular和TypeScript编译器共享的依赖包。</li>
+</ul>
+<h3 id="tsconfig-json-文件的配置"><a href="#tsconfig-json-文件的配置" class="headerlink" title="tsconfig.json 文件的配置"></a>tsconfig.json 文件的配置</h3><p>在项目的根目录下创建 <code>tsconfig.json</code> 文件。</p>
+<p>浏览器不能直接执行 <code>TypeScript</code> ，需要用编译器转译成JavaScript，而且编译器需要进行一些配置。 <code>tsconfig.json</code> 的配置就是指导编译器如何生成JavaScript文件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"compilerOptions"</span>: &#123;</div><div class="line">    <span class="string">"declaration"</span>: <span class="literal">false</span>,</div><div class="line">    <span class="string">"module"</span>: <span class="string">"commonjs"</span>, <span class="comment">// 组织代码的方式</span></div><div class="line">    <span class="string">"target"</span>: <span class="string">"es5"</span>, <span class="comment">// 编译目标平台</span></div><div class="line">    <span class="string">"moduleResolution"</span>: <span class="string">"node"</span>,</div><div class="line">    <span class="string">"sourceMap"</span>: <span class="literal">true</span>, <span class="comment">// 把ts文件变异成js文件时，是否生成对应的SourceMap文件</span></div><div class="line">    <span class="string">"emitDecoratorMetadata"</span>: <span class="literal">true</span>, <span class="comment">// 让TypeScript支持为带有装饰器的声明生成元数据</span></div><div class="line">    <span class="string">"experimentalDecorators"</span>: <span class="literal">true</span>, <span class="comment">// 是否启用实验性装饰器特性</span></div><div class="line">    <span class="string">"noImplicitAny"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"lib"</span>: [<span class="string">"dom"</span>, <span class="string">"es6"</span>],</div><div class="line">    <span class="string">"suppressImplicitAnyIndexErrors"</span>: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"exclude"</span>: [</div><div class="line">    <span class="string">"node_modules"</span>,</div><div class="line">    <span class="string">"dist"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"awesomeTypescriptLoaderOptions"</span>: &#123;</div><div class="line">    <span class="string">"forkChecker"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"useWebpackText"</span>: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"compileOnSave"</span>: <span class="literal">false</span>,</div><div class="line">  <span class="string">"buildOnSave"</span>: <span class="literal">false</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当 <code>noImplicitAny</code> 标志是 <code>true</code> 并且TypeScript编译器无法推断出类型时，它仍然会生成JavaScript文件。 但是它也会报告一个错误。 很多饱经沧桑的程序员更喜欢这种严格的设置，因为类型检查能在编译期间捕获更多意外错误。</p>
+<h3 id="创建-webpack-config-js文件"><a href="#创建-webpack-config-js文件" class="headerlink" title="创建 webpack.config.js文件"></a>创建 webpack.config.js文件</h3><p>在根目录下创建 <code>webpack.config.js</code>文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="built_in">require</span>(<span class="string">'./config/webpack.dev.js'</span>);</div></pre></td></tr></table></figure>
+<p>现在在控制台中执行 <code>npm install</code> 命令，安装项目的依赖。</p>
+<h2 id="二、Polyfills"><a href="#二、Polyfills" class="headerlink" title="二、Polyfills"></a>二、Polyfills</h2><p>配置好上述的几个文件之后呢，我们在项目中的根目录下创建一个 <code>src</code> 文件夹。</p>
+<p>在 <code>src</code> 文件夹的下面新建一个 <code>polyfills.ts</code> 文件。</p>
+<p><code>polyfills.ts</code> 文件里引入了运行Angular应用时所需的一些标准js。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/symbol'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/object'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/function'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/parse-int'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/parse-float'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/number'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/math'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/string'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/date'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/array'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/regexp'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/map'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/set'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/weak-map'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/weak-set'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/typed'</span>;</div><div class="line"></div><div class="line"><span class="comment">/** Evergreen browsers require these. **/</span></div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es6/reflect'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="string">'core-js/es7/reflect'</span>;</div><div class="line"></div><div class="line"><span class="comment">/***************************************************************************************************</span></div><div class="line"> * Zone JS is required by Angular itself.</div><div class="line"> */</div><div class="line"><span class="keyword">import</span> <span class="string">'zone.js/dist/zone'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="string">'ts-helpers'</span>;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (process.env.ENV === <span class="string">'production'</span>) &#123;</div><div class="line">  <span class="comment">// Production</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  <span class="comment">// Development and test</span></div><div class="line">  <span class="built_in">Error</span>[<span class="string">'stackTraceLimit'</span>] = <span class="literal">Infinity</span>;</div><div class="line">  <span class="built_in">require</span>(<span class="string">'zone.js/dist/long-stack-trace-zone'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="三、Vendor"><a href="#三、Vendor" class="headerlink" title="三、Vendor"></a>三、Vendor</h2><p>在 <code>src</code> 文件夹的下面新建一个 <code>vendor.ts</code> 文件。</p>
+<p><code>vendor.ts</code> 文件里面引入了一些第三方的依赖。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Angular</span></div><div class="line"><span class="comment">//包含所有提供商依赖</span></div><div class="line"><span class="keyword">import</span> <span class="string">'@angular/platform-browser'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'@angular/platform-browser-dynamic'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'@angular/compiler'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'@angular/core'</span>;  <span class="comment">// 存放核心代码，如变化监测机制，依赖注入机制，渲染，装饰器等。</span></div><div class="line"><span class="keyword">import</span> <span class="string">'@angular/common'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'@angular/http'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'@angular/router'</span>;</div><div class="line"></div><div class="line"><span class="comment">// RxJS</span></div><div class="line"><span class="keyword">import</span> <span class="string">'rxjs/Observable'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'rxjs/Subscription'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'rxjs/Subject'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'rxjs/BehaviorSubject'</span>;</div><div class="line"></div><div class="line"><span class="comment">// Bootsctrap</span></div><div class="line"><span class="keyword">import</span> <span class="string">'bootstrap/dist/css/bootstrap.css'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'font-awesome/css/font-awesome.css'</span>;</div></pre></td></tr></table></figure></p>
+<h2 id="四、Main"><a href="#四、Main" class="headerlink" title="四、Main"></a>四、Main</h2><p>在 <code>src</code> 文件夹的下面新建一个 <code>main.ts</code> 文件。</p>
+<p>在 <code>main.ts</code> 文件中，我们指定了项目的根模块为 <code>AppModule</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;AppModule&#125; <span class="keyword">from</span> <span class="string">'./app/app.module'</span>;</div><div class="line"><span class="keyword">import</span> &#123; platformBrowserDynamic &#125; <span class="keyword">from</span> <span class="string">"@angular/platform-browser-dynamic"</span>;</div><div class="line"></div><div class="line">platformBrowserDynamic().bootstrapModule(AppModule);</div><div class="line"></div><div class="line"><span class="comment">// platformBrowserDynamic().bootstrapModule()方法来编译启用AppModule模块</span></div><div class="line"><span class="comment">// 根据当前的运行环境，如操作系统、浏览器，来初始化一个运行环境，然后从这个环境里面运行AppModule。</span></div></pre></td></tr></table></figure>
+<h2 id="五、config"><a href="#五、config" class="headerlink" title="五、config"></a>五、config</h2><p>在根目录下创建一个 <code>config</code> 文件夹</p>
+<h3 id="helpers-js"><a href="#helpers-js" class="headerlink" title="helpers.js"></a>helpers.js</h3><p>在 <code>config</code> 文件夹下面创建一个 <code>helpers.js</code> 文件。</p>
+<p>在这里请注意入口 <code>polyfills</code>,<code>vendor</code> 和 <code>app</code> 的先后顺序。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">var</span> _root = path.resolve(__dirname, <span class="string">'..'</span>);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">root</span>(<span class="params">args</span>) </span>&#123;</div><div class="line">  args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">0</span>);</div><div class="line">  <span class="keyword">return</span> path.join.apply(path, [_root].concat(args));</div><div class="line">&#125;</div><div class="line">exports.root = root;</div></pre></td></tr></table></figure></p>
+<h3 id="webpack-common-js"><a href="#webpack-common-js" class="headerlink" title="webpack.common.js"></a>webpack.common.js</h3><p>在 <code>config</code> 文件夹下面创建一个 <code>webpack.common.js</code> 文件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> helpers = <span class="built_in">require</span>(<span class="string">'./helpers'</span>);</div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</div><div class="line"><span class="keyword">var</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">entry</span>: &#123;</div><div class="line">    <span class="string">'polyfills'</span>: <span class="string">'./src/polyfills.ts'</span>, <span class="comment">// 运行Angular时所需的一些标准js</span></div><div class="line">    <span class="string">'vendor'</span>: <span class="string">'./src/vendor.ts'</span>, <span class="comment">// Angular、Lodash、bootstrap.css......</span></div><div class="line">    <span class="string">'app'</span>: <span class="string">'./src/main.ts'</span> <span class="comment">// 应用代码</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">resolve</span>: &#123; <span class="comment">// 解析模块路径时的配置</span></div><div class="line">    extensions: [<span class="string">'.ts'</span>, <span class="string">'.js'</span>] <span class="comment">// 制定模块的后缀，在引入模块时就会自动补全</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">module</span>: &#123;</div><div class="line">    <span class="attr">rules</span>: [ <span class="comment">// 告诉webpack每一类文件需要使用什么加载器来处理</span></div><div class="line">      &#123;</div><div class="line">        <span class="attr">test</span>   : <span class="regexp">/\.ts$/</span>,</div><div class="line">        <span class="attr">loaders</span>: [<span class="string">'awesome-typescript-loader'</span>, <span class="string">'angular2-template-loader'</span>]</div><div class="line">        <span class="comment">//awesome-typescript-loader - 一个用于把TypeScript代码转译成ES5的加载器，它会由tsconfig.json文件提供指导</span></div><div class="line">        <span class="comment">//angular2-template-loader - 用于加载Angular组件的模板和样式</span></div><div class="line">      &#125;, &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.json$/</span>,</div><div class="line">        <span class="attr">use</span> : <span class="string">'json-loader'</span></div><div class="line">      &#125;, &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.styl$/</span>,</div><div class="line">        <span class="attr">loader</span>: <span class="string">'css-loader!stylus-loader'</span></div><div class="line">      &#125;, &#123;</div><div class="line">        <span class="attr">test</span>   : <span class="regexp">/\.css$/</span>,</div><div class="line">        <span class="attr">loaders</span>: [<span class="string">'to-string-loader'</span>, <span class="string">'css-loader'</span>]</div><div class="line">      &#125;, &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.html$/</span>,</div><div class="line">        <span class="attr">use</span>: <span class="string">'raw-loader'</span>,</div><div class="line">        <span class="attr">exclude</span>: [helpers.root(<span class="string">'src/index.html'</span>)]</div><div class="line">        <span class="comment">//html - 为组件模板准备的加载器</span></div><div class="line">      &#125;, &#123;</div><div class="line">        <span class="attr">test</span>:<span class="regexp">/\.(jpg|png|gif)$/</span>,</div><div class="line">        <span class="attr">use</span>:<span class="string">"file-loader"</span></div><div class="line">      &#125;, &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/</span>,</div><div class="line">        <span class="attr">use</span> : <span class="string">"url-loader?limit=10000&amp;minetype=application/font-woff"</span></div><div class="line">      &#125;, &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/</span>,</div><div class="line">        <span class="attr">use</span> : <span class="string">"file-loader"</span></div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">plugins</span>: [</div><div class="line">    <span class="comment">//热替换</span></div><div class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</div><div class="line">    <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(&#123;</div><div class="line">      <span class="attr">name</span>: [<span class="string">'vendor'</span>, <span class="string">'polyfills'</span>]</div><div class="line">      <span class="comment">//多个html共用一个js文件，提取公共代码</span></div><div class="line">    &#125;),</div><div class="line">    </div><div class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</div><div class="line">      <span class="attr">template</span>: <span class="string">'./src/index.html'</span></div><div class="line">      <span class="comment">// 自动向目标.html文件注入script和link标签</span></div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="webpack-dev-js"><a href="#webpack-dev-js" class="headerlink" title="webpack.dev.js"></a>webpack.dev.js</h3><p>在 <code>config</code> 文件夹下面创建一个 <code>webpack.dev.js</code> 文件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpackMerge = <span class="built_in">require</span>(<span class="string">'webpack-merge'</span>);</div><div class="line"><span class="keyword">var</span> commonConfig = <span class="built_in">require</span>(<span class="string">'./webpack.common.js'</span>);</div><div class="line"><span class="keyword">const</span> helpers = <span class="built_in">require</span>(<span class="string">'./helpers'</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = webpackMerge(commonConfig, &#123;</div><div class="line">  <span class="attr">output</span>   : &#123;</div><div class="line">    <span class="attr">path</span>      : helpers.root(<span class="string">'dist'</span>),</div><div class="line">    <span class="attr">publicPath</span>: <span class="string">'/'</span>,</div><div class="line">    <span class="attr">filename</span>  : <span class="string">'[name].js'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">devServer</span>: &#123;</div><div class="line">    <span class="attr">port</span>              : <span class="number">8080</span>,</div><div class="line">    <span class="attr">historyApiFallback</span>: <span class="literal">true</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>至此，现在的目录结构就如下图所示：</p>
+<p><img src="https://dn-mhke0kuv.qbox.me/01070446b15d18534a3d" alt=""><br>因为我们还没有创建 <code>AppModule</code> ，所以 <code>main.ts</code> 文件会被标红。</p>
+<h2 id="六、根模块-AppModule"><a href="#六、根模块-AppModule" class="headerlink" title="六、根模块 AppModule"></a>六、根模块 AppModule</h2><p>基本的配置已经完成啦，现在我们来创建根模块～</p>
+<p>在 <code>src</code> 文件下面新建一个 <code>app</code> 文件夹，</p>
+<h3 id="创建-app-component-ts"><a href="#创建-app-component-ts" class="headerlink" title="创建 app.component.ts"></a>创建 app.component.ts</h3><p>在<code>app</code> 文件夹下面新建 <code>app.component.ts</code> 文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">  <span class="attr">selector</span>   : <span class="string">'root-app'</span>,</div><div class="line">  <span class="attr">templateUrl</span>: <span class="string">'./app.component.html'</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppComponent</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>() &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="创建-app-component-html"><a href="#创建-app-component-html" class="headerlink" title="创建 app.component.html"></a>创建 app.component.html</h3><p>在 <code>app</code> 文件夹下面新建 <code>app.component.html</code> 文件<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span>Hello Angular2<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">router-outlet</span>&gt;</span><span class="tag">&lt;/<span class="name">router-outlet</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="创建-app-routes-ts"><a href="#创建-app-routes-ts" class="headerlink" title="创建 app.routes.ts"></a>创建 app.routes.ts</h3><p>这里我们用一下路由来完成页面之间的跳转<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Routes &#125; <span class="keyword">from</span> <span class="string">'@angular/router'</span>;</div><div class="line"><span class="keyword">import</span> &#123; AppComponent &#125; <span class="keyword">from</span> <span class="string">"./app.component"</span>;</div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> routes: Routes = [ <span class="comment">// Routes类型的数组</span></div><div class="line">  &#123;</div><div class="line">    <span class="attr">path</span>      : <span class="string">'index'</span>,</div><div class="line">    <span class="attr">component</span> : AppComponent</div><div class="line">  &#125;,&#123;</div><div class="line">    <span class="attr">path</span>      : <span class="string">''</span>,</div><div class="line">    <span class="attr">redirectTo</span>: <span class="string">'index'</span>,</div><div class="line">    <span class="attr">pathMatch</span> : <span class="string">'full'</span></div><div class="line">  &#125;</div><div class="line">];</div></pre></td></tr></table></figure></p>
+<h3 id="创建-app-module-ts"><a href="#创建-app-module-ts" class="headerlink" title="创建 app.module.ts"></a>创建 app.module.ts</h3><p>在 <code>app</code> 文件夹下面新建 <code>app.module.ts</code> 文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; AppComponent &#125; <span class="keyword">from</span> <span class="string">'./app.component'</span>;</div><div class="line"><span class="keyword">import</span> &#123; routes &#125; <span class="keyword">from</span> <span class="string">'./app.routes'</span>;</div><div class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; <span class="keyword">from</span> <span class="string">"@angular/platform-browser"</span>;</div><div class="line"><span class="keyword">import</span> &#123; FormsModule &#125; <span class="keyword">from</span> <span class="string">"@angular/forms"</span>;</div><div class="line"><span class="keyword">import</span> &#123; RouterModule &#125; <span class="keyword">from</span> <span class="string">"@angular/router"</span>;</div><div class="line"><span class="keyword">import</span> &#123; NgModule &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line"><span class="comment">//@NgModule装饰器用来为模块定义元数据</span></div><div class="line">@NgModule(&#123; <span class="comment">// @NgModule 用来定义模块用的装饰器</span></div><div class="line">  declarations: [AppComponent], <span class="comment">// 导入模块所依赖的组件、指令等,用于指定这个模块的视图类</span></div><div class="line">  imports: [</div><div class="line">    BrowserModule, <span class="comment">//包含了commonModule和applicationModule模块,封装在浏览器平台运行时的一些工具库</span></div><div class="line">    FormsModule,  <span class="comment">// 表单相关的组件指令等，包含了[(ngModel)]</span></div><div class="line">    RouterModule.forRoot(routes,&#123;<span class="attr">useHash</span>: <span class="literal">false</span>&#125;), <span class="comment">// RouterModule.forRoot()方法来创建根路由模块</span></div><div class="line">  ], <span class="comment">// 导入当前模块所需要的其他模块</span></div><div class="line">  bootstrap: [AppComponent], <span class="comment">// 标记出引导组件</span></div><div class="line">  <span class="comment">//把这个AppComponent标记为引导 (bootstrap) 组件。当Angular引导应用时，它会在DOM中渲</span></div><div class="line">  <span class="comment">//染AppComponent，并把结果放进index.html的元素内部。</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppModule</span> </span>&#123; &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="六、宿主页面"><a href="#六、宿主页面" class="headerlink" title="六、宿主页面"></a>六、宿主页面</h2><p>在 <code>src</code> 文件夹下面新建 <code>index.html</code> 文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Angular2 Hello Word<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">root-app</span>&gt;</span>Loading...<span class="tag">&lt;/<span class="name">root-app</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>好啦，此时的项目目录结构就是下图所示：<br><img src="https://dn-mhke0kuv.qbox.me/3ec563d462c569bfe32c" alt=""></p>
+<p>接下来运行 <code>npm start</code> 开始你的 <code>Angular</code> 之旅吧～</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://angular.io" target="_blank" rel="external">Angular官方网站</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持原创</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://oux6kzfrp.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1.jpeg" alt="Meng Yan WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://oux6kzfrp.bkt.clouddn.com/%E6%94%AF%E4%BB%98%E5%AE%9D%E4%BA%8C%E7%BB%B4%E7%A0%81.jpeg" alt="Meng Yan Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Angular/" rel="tag"># Angular</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/14/Icomoon-的使用/" rel="next" title="Icomoon 的使用">
+                <i class="fa fa-chevron-left"></i> Icomoon 的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/27/玩转-React-表单：使用-Refs/" rel="prev" title="翻译 | 玩转 React 表单 —— Refs 的运用">
+                翻译 | 玩转 React 表单 —— Refs 的运用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://oux6kzfrp.bkt.clouddn.com/blog/avatarIMG_3716.JPG"
+               alt="Meng Yan" />
+          <p class="site-author-name" itemprop="name">Meng Yan</p>
+           
+              <p class="site-description motion-element" itemprop="description">前端，JavaScript，CSS，生活，小女生</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yanyixin" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2863604000/profile?topnav=1&wvr=6" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/meng-meng-75-61-6/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/57221ca41532bc00624a1d0a" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-angle-double-down"></i>
+                  
+                    
+                      掘金
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、配置-webpack"><span class="nav-number">1.</span> <span class="nav-text">一、配置 webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#package-json-文件的配置"><span class="nav-number">1.1.</span> <span class="nav-text">package.json 文件的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tsconfig-json-文件的配置"><span class="nav-number">1.2.</span> <span class="nav-text">tsconfig.json 文件的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-webpack-config-js文件"><span class="nav-number">1.3.</span> <span class="nav-text">创建 webpack.config.js文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Polyfills"><span class="nav-number">2.</span> <span class="nav-text">二、Polyfills</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Vendor"><span class="nav-number">3.</span> <span class="nav-text">三、Vendor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、Main"><span class="nav-number">4.</span> <span class="nav-text">四、Main</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、config"><span class="nav-number">5.</span> <span class="nav-text">五、config</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#helpers-js"><span class="nav-number">5.1.</span> <span class="nav-text">helpers.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack-common-js"><span class="nav-number">5.2.</span> <span class="nav-text">webpack.common.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack-dev-js"><span class="nav-number">5.3.</span> <span class="nav-text">webpack.dev.js</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、根模块-AppModule"><span class="nav-number">6.</span> <span class="nav-text">六、根模块 AppModule</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-app-component-ts"><span class="nav-number">6.1.</span> <span class="nav-text">创建 app.component.ts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-app-component-html"><span class="nav-number">6.2.</span> <span class="nav-text">创建 app.component.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-app-routes-ts"><span class="nav-number">6.3.</span> <span class="nav-text">创建 app.routes.ts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-app-module-ts"><span class="nav-number">6.4.</span> <span class="nav-text">创建 app.module.ts</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、宿主页面"><span class="nav-number">7.</span> <span class="nav-text">六、宿主页面</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Meng Yan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Pisces
+    </a>
+  </div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("IHTzpb0fC94ev9hG4fQa60fR-gzGzoHsz", "wkXHDvgJLdiWePOmQmfWorPf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
