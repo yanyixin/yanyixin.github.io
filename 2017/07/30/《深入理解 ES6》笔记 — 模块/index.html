@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="JavaScript,ES6," />
 
 
 
@@ -94,23 +94,17 @@
 
 
 
-<meta name="description" content="我们经常遇到的问题有实现 css 垂直居中，一个效果的实现可以有多种方法，了解每一个方法的原理也可以帮我们更快速的定位在我们需要的场景中需要使用哪种方法。接下来我就把我知道的一些方法和在网上总结的一些办法实现一下，俗话说：好记性不如烂笔头。写下来才能记忆深刻。">
-<meta name="keywords" content="CSS">
+<meta name="description" content="什么是模块 自动运行在严格模式下并且没有办法退出运行的 JavaScript 代码。在模块的顶部，  this 的值是 undefined；模块不支持 HTML 代码风格的代码注释。模块仅导入和导出你需要的绑定。 导出用 export 导出">
+<meta name="keywords" content="JavaScript,ES6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS 实现内容垂直居中">
-<meta property="og:url" content="http://yanmeng.me/2016/06/13/CSS-实现内容垂直居中/index.html">
+<meta property="og:title" content="《深入理解 ES6》笔记 — 模块">
+<meta property="og:url" content="http://yanmeng.me/2017/07/30/《深入理解 ES6》笔记 — 模块/index.html">
 <meta property="og:site_name" content="position_柚子君">
-<meta property="og:description" content="我们经常遇到的问题有实现 css 垂直居中，一个效果的实现可以有多种方法，了解每一个方法的原理也可以帮我们更快速的定位在我们需要的场景中需要使用哪种方法。接下来我就把我知道的一些方法和在网上总结的一些办法实现一下，俗话说：好记性不如烂笔头。写下来才能记忆深刻。">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-eee9e72c4e53e06e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-d5a5bc97bf101ee0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-d935c285533b4c27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-cf71c3fc114e94a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-b3e4fa77e390df94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-08-19T07:40:30.000Z">
+<meta property="og:description" content="什么是模块 自动运行在严格模式下并且没有办法退出运行的 JavaScript 代码。在模块的顶部，  this 的值是 undefined；模块不支持 HTML 代码风格的代码注释。模块仅导入和导出你需要的绑定。 导出用 export 导出">
+<meta property="og:updated_time" content="2017-08-19T16:20:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 实现内容垂直居中">
-<meta name="twitter:description" content="我们经常遇到的问题有实现 css 垂直居中，一个效果的实现可以有多种方法，了解每一个方法的原理也可以帮我们更快速的定位在我们需要的场景中需要使用哪种方法。接下来我就把我知道的一些方法和在网上总结的一些办法实现一下，俗话说：好记性不如烂笔头。写下来才能记忆深刻。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1561693-eee9e72c4e53e06e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="《深入理解 ES6》笔记 — 模块">
+<meta name="twitter:description" content="什么是模块 自动运行在严格模式下并且没有办法退出运行的 JavaScript 代码。在模块的顶部，  this 的值是 undefined；模块不支持 HTML 代码风格的代码注释。模块仅导入和导出你需要的绑定。 导出用 export 导出">
 
 
 
@@ -139,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yanmeng.me/2016/06/13/CSS-实现内容垂直居中/"/>
+  <link rel="canonical" href="http://yanmeng.me/2017/07/30/《深入理解 ES6》笔记 — 模块/"/>
 
 
 
 
 
-  <title>CSS 实现内容垂直居中 | position_柚子君</title>
+  <title>《深入理解 ES6》笔记 — 模块 | position_柚子君</title>
   
 
 
@@ -282,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yanmeng.me/2016/06/13/CSS-实现内容垂直居中/">
+    <link itemprop="mainEntityOfPage" href="http://yanmeng.me/2017/07/30/《深入理解 ES6》笔记 — 模块/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Meng Yan">
@@ -299,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS 实现内容垂直居中</h1>
+          <h1 class="post-title" itemprop="name headline">《深入理解 ES6》笔记 — 模块</h1>
         
 
         <div class="post-meta">
@@ -311,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-13T00:00:00+08:00">
-                2016-06-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-30T20:38:18+08:00">
+                2017-07-30
               </time>
             
 
@@ -351,7 +345,7 @@
 
           
           
-             <span id="/2016/06/13/CSS-实现内容垂直居中/" class="leancloud_visitors" data-flag-title="CSS 实现内容垂直居中">
+             <span id="/2017/07/30/《深入理解 ES6》笔记 — 模块/" class="leancloud_visitors" data-flag-title="《深入理解 ES6》笔记 — 模块">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -387,26 +381,31 @@
       
 
       
-        <p>我们经常遇到的问题有实现 <code>css</code> 垂直居中，一个效果的实现可以有多种方法，了解每一个方法的原理也可以帮我们更快速的定位在我们需要的场景中需要使用哪种方法。接下来我就把我知道的一些方法和在网上总结的一些办法实现一下，俗话说：好记性不如烂笔头。写下来才能记忆深刻。</p>
+        <h2 id="什么是模块"><a href="#什么是模块" class="headerlink" title="什么是模块"></a>什么是模块</h2><p> 自动运行在严格模式下并且没有办法退出运行的 <code>JavaScript</code> 代码。在模块的顶部，  <code>this</code> 的值是 <code>undefined</code>；模块不支持 <code>HTML</code> 代码风格的代码注释。模块仅导入和导出你需要的绑定。</p>
+<h2 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h2><p>用 <code>export</code> 导出</p>
 <a id="more"></a>
-<p>首先： 实现水平居中有以下方法。如果是内联元素，设置父元素 <code>text-align :center</code>；<br>如果是块状元素：<code>margin: auto</code>;</p>
-<p>接下来看垂直居中。</p>
-<p>44年前我们把人送上月球，但在CSS中我们仍然不能很好实现垂直居中——@James Anderson</p>
-<p>1、文本水平垂直居中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.outer&#123;</div><div class="line">  background-color: hotpink;</div><div class="line">  margin:auto;</div><div class="line">  height: 100px;</div><div class="line">  width:200px;</div><div class="line">&#125;</div><div class="line">.text&#123;</div><div class="line">  text-align: center;</div><div class="line">  line-height: 100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1561693-eee9e72c4e53e06e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>2、盒模型水平垂直居中</p>
-<p>垂直居中在现在的需求上还是经常需要的，看似简单，可是当涉及到尺寸不固定的情况时，就变的非常棘手了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;box&quot;&gt;</div><div class="line">  &lt;div class=&quot;outer&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>绝对定位的方法：</p>
-<p>要求具有固定的宽度和高度：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.outer&#123;</div><div class="line">  position: absolute;</div><div class="line">  top:50%;</div><div class="line">  left:50%;</div><div class="line">  margin-left: -100px;</div><div class="line">  margin-top: -50px;</div><div class="line">  width:200px;</div><div class="line">  height: 100px;</div><div class="line">  background-color: pink;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>先把元素的左上角固定在正中心，然后再利用 <code>margin</code> 把左上角向左方和上方移动本身宽度的一半，这样就实现了垂直居中。<br>分析：需要给元素一个固定的尺寸，灵活性不是很高。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1561693-d5a5bc97bf101ee0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>如果可以让元素按照自身尺寸的百分比来移动，那元素的尺寸就可以不用固定了。于是采用了 <code>transform</code> 中的 <code>translate( )</code> ；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.outer&#123;</div><div class="line">  position: absolute;</div><div class="line">  top:50%;</div><div class="line">  left:50%;</div><div class="line">  transform:translate(-50%,-50%);</div><div class="line">  background-color: hotpink;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1561693-d935c285533b4c27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>绝对定位不是一个很好的选择，因为对整体布局的影响还是很大的。</p>
-<p>Flex布局<br>通过 <code>Flex</code> 布局可以很轻松的实现垂直居中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">  display: flex;</div><div class="line">  width:800px;</div><div class="line">  height:500px;</div><div class="line">  background-color: bisque;</div><div class="line">  margin:100px auto;</div><div class="line">&#125;</div><div class="line">.outer&#123;</div><div class="line">  background-color: hotpink;</div><div class="line">  margin:auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1561693-cf71c3fc114e94a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><code>flex</code> 的兼容性<img src="http://upload-images.jianshu.io/upload_images/1561693-b3e4fa77e390df94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 导出数据</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> NAME = <span class="string">"柚子"</span>;</div><div class="line"></div><div class="line"> <span class="comment">// 这个 age 变量是此模块私有的</span></div><div class="line"><span class="keyword">let</span> age = <span class="number">18</span>;</div><div class="line"></div><div class="line"> <span class="comment">// 导出函数</span></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">subtract</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a - b</div><div class="line">&#125;</div><div class="line"> <span class="comment">// 导出引用</span></div><div class="line"><span class="keyword">export</span> subtract;</div></pre></td></tr></table></figure>
+<p> 任何未显式到处的变量、函数或类都是模块私有的，外部无法访问。</p>
+<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><p> 用 <code>import</code> 导入</p>
+<p> 语法：<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NAME, add, subtract &#125; <span class="keyword">from</span> <span class="string">'./example.js'</span>;</div><div class="line"><span class="comment">// 此语句的含义是，从 example.js 文件中导入需要的标识符。</span></div><div class="line"><span class="comment">// 可以导入一个或多个</span></div><div class="line"></div><div class="line">add(<span class="number">1</span>, <span class="number">2</span>) <span class="comment">// 3</span></div><div class="line"> </div><div class="line">NAME = <span class="number">1</span>; <span class="comment">// 抛错，不能给导入的绑定重新赋值</span></div></pre></td></tr></table></figure></p>
+<h3 id="导入整个模块"><a href="#导入整个模块" class="headerlink" title="导入整个模块"></a>导入整个模块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> example <span class="keyword">from</span> <span class="string">'./example.js'</span>;</div><div class="line"></div><div class="line">cconsole.log(example.NAME); <span class="comment">// 柚子</span></div><div class="line">example.add(<span class="number">1</span>, <span class="number">2</span>) <span class="comment">// 3</span></div></pre></td></tr></table></figure>
+<p> 这种导入格式被称为<strong>命名空间导入</strong>；在 <code>example.js</code> 文件中不存在 <code>example</code> 对象，所以它作为 <code>example.js</code> 中所有导出成员的命名空间对象而被创建。</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NAME &#125; <span class="keyword">from</span> <span class="string">'./example.js'</span>;</div><div class="line"><span class="keyword">import</span> &#123; add &#125; <span class="keyword">from</span> <span class="string">'./example.js'</span>;</div><div class="line"><span class="keyword">import</span> &#123; subtract &#125; <span class="keyword">from</span> <span class="string">'./example.js'</span>;</div></pre></td></tr></table></figure>
+<p> 不管 <code>import</code> 语句中把一个模块写了几次，该模块都只对执行一次。</p>
+<p> <strong>注意：</strong> <code>export</code> 语句不允许出现在 <code>if</code> 语句中，也不能在一条语句中使用 <code>import</code>，只能在顶部使用它。</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(isTrue) &#123;</div><div class="line">    <span class="keyword">export</span> add; <span class="comment">// 这样写会报错</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">importSomething</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">import</span> &#123; add &#125; <span class="keyword">from</span> <span class="string">'./example.js'</span>; <span class="comment">// 这样写会报错</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="重命名"><a href="#重命名" class="headerlink" title="重命名"></a>重命名</h2><p> 通过 <code>as</code> 关键字来指定函数在模块外应该被叫做什么名字<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">// example.js</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> &#123; sum <span class="keyword">as</span> add &#125;; <span class="comment">// 这里 sum 是本地名称，add 是导出时使用的名称</span></div><div class="line">    </div><div class="line"><span class="comment">// app.js</span></div><div class="line"><span class="keyword">import</span> &#123; add &#125; <span class="keyword">from</span> <span class="string">'./example.js'</span>;</div><div class="line"><span class="comment">// 在导入的时候，必须要使用 add</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// example.js</span></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b</div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="comment">// app.js</span></div><div class="line"><span class="keyword">import</span> &#123; sum <span class="keyword">as</span> add &#125; <span class="keyword">from</span> <span class="string">'./example.js'</span>;</div><div class="line"><span class="comment">// 在导入时用 add 来重命名 sum</span></div><div class="line"></div><div class="line">add(<span class="number">1</span>, <span class="number">2</span>) <span class="comment">// 3</span></div></pre></td></tr></table></figure>
+<h2 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h2><p>每个模块只能有一个默认的导出值。<br><code>default</code> 表示这是一个默认的导出。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 导出默认值</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>也可以是：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 导出默认值</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> sum;</div></pre></td></tr></table></figure></p>
+<p>如果要导入默认值的话，就不能加<strong>中括号</strong>了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sum <span class="keyword">from</span> <span class="string">'./example.js'</span>;</div></pre></td></tr></table></figure>
+<p>如果文件中既有默认值，也有非默认值：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">let</span> age = <span class="number">18</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那么<strong>导入</strong>的时候就需要这样写：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> add, &#123; age &#125; <span class="keyword">from</span> <span class="string">'./example.js'</span>;</div><div class="line"><span class="comment">// 在 import 语句中，默认值必须排在非默认值之前</span></div></pre></td></tr></table></figure></p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>所以，看完了上面的解析之后，现在知道下面的写法是什么意思了吧。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component, PropTypes &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -452,7 +451,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/ES6/" rel="tag"># ES6</a>
           
         </div>
       
@@ -465,14 +466,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/07/30/了解Retina屏幕和Retina屏幕下图片的显示问题/" rel="next" title="了解Retina屏幕和Retina屏幕下图片的显示问题">
+                <i class="fa fa-chevron-left"></i> 了解Retina屏幕和Retina屏幕下图片的显示问题
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/14/Icomoon-的使用/" rel="prev" title="Icomoon 的使用">
-                Icomoon 的使用 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/30/理解JavaScript原型/" rel="prev" title="理解JavaScript原型">
+                理解JavaScript原型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -525,8 +530,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://oux6kzfrp.bkt.clouddn.com/blog/avatarIMG_3716.JPG"
@@ -634,6 +648,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是模块"><span class="nav-number">1.</span> <span class="nav-text">什么是模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导出"><span class="nav-number">2.</span> <span class="nav-text">导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导入"><span class="nav-number">3.</span> <span class="nav-text">导入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入整个模块"><span class="nav-number">3.1.</span> <span class="nav-text">导入整个模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名"><span class="nav-number">4.</span> <span class="nav-text">重命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认值"><span class="nav-number">5.</span> <span class="nav-text">默认值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">6.</span> <span class="nav-text">结尾</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
