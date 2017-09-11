@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yanmeng.me/2017/09/11/Where-to-Fetch-Data-componentWillMount-vs-componentDidMount/</loc>
+    <lastmod>2017-09-11T08:47:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>Where-to-Fetch-Data-componentWillMount-vs-componentDidMount</title>
+        <pubTime>2017-09-11T08:46:49.000Z</pubTime>
+        
+        <tag>React</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://yanmeng.me/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yanmeng.me/2017/08/31/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/</loc>
     <lastmod>2017-08-31T15:39:05.000Z</lastmod>
     <data>
@@ -111,26 +131,6 @@
 
     
   <url>
-    <loc>http://yanmeng.me/2016/06/13/CSS-%E5%AE%9E%E7%8E%B0%E5%86%85%E5%AE%B9%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/</loc>
-    <lastmod>2017-08-19T07:40:30.000Z</lastmod>
-    <data>
-        <display>
-        <title>CSS 实现内容垂直居中</title>
-        <pubTime>2016-06-12T16:00:00.000Z</pubTime>
-        
-        <tag>CSS</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://yanmeng.me/categories/%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yanmeng.me/2016/06/14/Icomoon-%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2017-08-19T07:40:30.000Z</lastmod>
     <data>
@@ -151,14 +151,14 @@
 
     
   <url>
-    <loc>http://yanmeng.me/2017/07/30/%E7%90%86%E8%A7%A3JavaScript%E5%8E%9F%E5%9E%8B/</loc>
+    <loc>http://yanmeng.me/2016/06/13/CSS-%E5%AE%9E%E7%8E%B0%E5%86%85%E5%AE%B9%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/</loc>
     <lastmod>2017-08-19T07:40:30.000Z</lastmod>
     <data>
         <display>
-        <title>理解JavaScript原型</title>
-        <pubTime>2017-07-30T12:42:42.000Z</pubTime>
+        <title>CSS 实现内容垂直居中</title>
+        <pubTime>2016-06-12T16:00:00.000Z</pubTime>
         
-        <tag>JavaScript</tag>
+        <tag>CSS</tag>
          
          
            
@@ -179,6 +179,26 @@
         <pubTime>2017-06-26T16:00:00.000Z</pubTime>
         
         <tag>React</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://yanmeng.me/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yanmeng.me/2017/07/30/%E7%90%86%E8%A7%A3JavaScript%E5%8E%9F%E5%9E%8B/</loc>
+    <lastmod>2017-08-19T07:40:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>理解JavaScript原型</title>
+        <pubTime>2017-07-30T12:42:42.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
          
          
            
