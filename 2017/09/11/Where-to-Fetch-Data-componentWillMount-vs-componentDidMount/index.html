@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="When you need to fetch some data for a React component, where do you do it?  This question comes up all the time.">
+<meta name="description" content="当你需要为 React 组件获取一些数据的时候，你会在哪做呢？  这个问题一直都存在。">
 <meta name="keywords" content="React">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Where-to-Fetch-Data-componentWillMount-vs-componentDidMount">
+<meta property="og:title" content="在哪获取数据：componentWillMount vs componentDidMount">
 <meta property="og:url" content="http://yanmeng.me/2017/09/11/Where-to-Fetch-Data-componentWillMount-vs-componentDidMount/index.html">
 <meta property="og:site_name" content="position_柚子君">
-<meta property="og:description" content="When you need to fetch some data for a React component, where do you do it?  This question comes up all the time.">
-<meta property="og:updated_time" content="2017-09-11T08:47:22.000Z">
+<meta property="og:description" content="当你需要为 React 组件获取一些数据的时候，你会在哪做呢？  这个问题一直都存在。">
+<meta property="og:updated_time" content="2017-09-11T09:54:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Where-to-Fetch-Data-componentWillMount-vs-componentDidMount">
-<meta name="twitter:description" content="When you need to fetch some data for a React component, where do you do it?  This question comes up all the time.">
+<meta name="twitter:title" content="在哪获取数据：componentWillMount vs componentDidMount">
+<meta name="twitter:description" content="当你需要为 React 组件获取一些数据的时候，你会在哪做呢？  这个问题一直都存在。">
 
 
 
@@ -139,7 +139,7 @@
 
 
 
-  <title>Where-to-Fetch-Data-componentWillMount-vs-componentDidMount | position_柚子君</title>
+  <title>在哪获取数据：componentWillMount vs componentDidMount | position_柚子君</title>
   
 
 
@@ -293,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Where-to-Fetch-Data-componentWillMount-vs-componentDidMount</h1>
+          <h1 class="post-title" itemprop="name headline">在哪获取数据：componentWillMount vs componentDidMount</h1>
         
 
         <div class="post-meta">
@@ -345,7 +345,7 @@
 
           
           
-             <span id="/2017/09/11/Where-to-Fetch-Data-componentWillMount-vs-componentDidMount/" class="leancloud_visitors" data-flag-title="Where-to-Fetch-Data-componentWillMount-vs-componentDidMount">
+             <span id="/2017/09/11/Where-to-Fetch-Data-componentWillMount-vs-componentDidMount/" class="leancloud_visitors" data-flag-title="在哪获取数据：componentWillMount vs componentDidMount">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -382,25 +382,25 @@
 
       
         <blockquote>
-<p>When you need to fetch some data for a React component, where do you do it?</p>
+<p>当你需要为 React 组件获取一些数据的时候，你会在哪做呢？</p>
 </blockquote>
-<p>This question comes up all the time.<br><a id="more"></a><br>There are two common places to fetch data:</p>
+<p>这个问题一直都存在。<br><a id="more"></a></p>
+<p>获取数据有两个常见的地方可以做到：</p>
 <ul>
 <li>componentWillMount</li>
 <li>componentDidMount</li>
 </ul>
-<p>And just so we’re clear, the <code>render</code> function is never a good place to fetch data – or to do anything that’s asynchronous, that changes state in some way, or that causes side effects.</p>
-<p>Let’s look at the two common options and the pros and cons of each.</p>
-<h3 id="componentWillMount"><a href="#componentWillMount" class="headerlink" title="componentWillMount"></a>componentWillMount</h3><p>This function is called right before the component’s first render, so at first glance it appears to be a perfect place to put data fetching logic.<br>There’s a “gotcha,” though: An asynchronous call to fetch data will not return before the render happens. This means the component will render with empty data at least once.<br>There is no way to “pause” rendering to wait for data to arrive. You cannot return a promise from <code>componentWillMount</code> or wrangle in a <code>setTimeout</code> somehow. The right way to handle this is to <a href="https://daveceddia.com/watch-out-for-undefined-state/" target="_blank" rel="external">setup the component’s initial state</a> so that it’s valid for rendering.<br>Incidentally, in ES6-style <code>class</code> components, the constructor plays the same role as <code>componentWillMount</code>, so if you already have a constructor, you can just put the code there.</p>
-<h3 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount"></a>componentDidMount</h3><p>By the time <code>componentDidMount</code> is called, the component has been rendered once.</p>
-<p>In practice, <code>componentDidMount</code> is <strong>the best place to put calls to fetch data,</strong> for two reasons:</p>
-<ol>
-<li><p>Using <strong>Did</strong>Mount makes it clear that data won’t be loaded until after the initial render. This reminds you to set up initial <code>state</code> properly, so you don’t end up with <a href="https://daveceddia.com/watch-out-for-undefined-state/" target="_blank" rel="external">undefined state that causes errors</a>.</p>
-</li>
-<li><p>If you ever need to render your app on the server (SSR/isomorphic/other buzzwords), <code>componentWillMount</code> will actually be called <em>twice</em> – once on the server, and again on the client – which is probably not what you want. Putting the data loading code in <code>componentDidMount</code> will ensure that data is only fetched from the client.</p>
-</li>
-</ol>
-<h3 id="Wrap-Up"><a href="#Wrap-Up" class="headerlink" title="Wrap Up"></a>Wrap Up</h3><p>I hope this clears up the question of <em>where</em> to load data. If you’re still not sure of the best way how to actually make the AJAX call and load data, read my post <a href="https://daveceddia.com/ajax-requests-in-react/" target="_blank" rel="external">AJAX Requests in React</a>.</p>
+<p>我们应该都很清楚，<code>render</code> 方法肯定不是一个获取数据的好地方 - 或者做任何有关异步操作的事情，它会以某种方式改变 state，也可能会引起副作用。</p>
+<p>让我们来看看这两种常见的选项以及他们的优缺点。</p>
+<h3 id="componentWillMount"><a href="#componentWillMount" class="headerlink" title="componentWillMount"></a>componentWillMount</h3><p>这个方法在组件第一次 render 之前被调用，所以猛一看会觉得这是写数据请求逻辑的最好的地方。</p>
+<p>但是这里有一个“陷阱”：在组件被渲染之前获取数据的异步调用不会 return 出来数据。就是说组件将至少一次会伴随着空数据被渲染。</p>
+<p>这是没有办法为了等待数据返回而去“暂停”渲染。你不能用 <code>setTimeout</code> 方法从 <code>componentWillMount</code> 中 return 出一个 promise。 处理这个问题的正确方式是<a href="https://daveceddia.com/watch-out-for-undefined-state/" target="_blank" rel="external">设置组件的初始 state</a> 来确保组件的有效渲染。</p>
+<p>正好，在 ES6 风格的 <code>class</code> 组件中，它的构造函数和 <code>componentWillMount</code> 的功能是一样的，所以，如果你已经有一个构造函数方法，那就可以直接把代码写在这里。</p>
+<h3 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount"></a>componentDidMount</h3><p>等到 <code>componentDidMount</code> 被调用的时候，组件已经被渲染一次了。</p>
+<p>通过实践，<code>componentDidMount</code> 是<strong>发送数据请求的最好的地方</strong>，有以下两个原因：</p>
+<p>1、使用 <strong>Did</strong>Mount 能够清晰的看出，直到初始渲染之后，数据才会被加载。这就提醒你要适当的去设置初始的 <code>state</code>，就不会因为 <a href="https://daveceddia.com/watch-out-for-undefined-state/" target="_blank" rel="external">state 为 undefined 而导致错误</a></p>
+<p>2、如果你需要在服务端（SSR/同构/其他的流行用语）渲染应用，那么 <code>componentWillMount</code> 将会被调用<strong>两次</strong> —— 一次在服务端，一次在客户端，当然，这应该是你不愿意看到的。那么把数据加载的代码放在 <code>componentDidMount</code> 中能确保只会从客户端获取数据。</p>
+<h3 id="Wrap-Up"><a href="#Wrap-Up" class="headerlink" title="Wrap Up"></a>Wrap Up</h3><p>我希望 <strong>在哪</strong> 加载数据的这个问题已经讲清楚了。如果你仍然不确定调用 AJAX 请求和加载数据的最好方法是什么，请阅读我的这篇文章 <a href="https://daveceddia.com/ajax-requests-in-react/" target="_blank" rel="external">在 React 中发送 AJAX 请求</a></p>
 
       
     </div>
