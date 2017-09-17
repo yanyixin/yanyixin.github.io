@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="当你需要为 React 组件获取一些数据的时候，你会从什么地方获取呢？  这个问题一直都存在。">
+<meta name="description" content="前段时间被问到这个问题，就 google 里一下，发现这篇文章讲到了重点，就翻译出来和大家一起分享。 原文链接：Where to Fetch Data: componentWillMount vs componentDidMount 校对：Cherry  当你需要为 React 组件获取一些数据的时候，你会从什么地方获取呢？  这个问题一直都存在。">
 <meta name="keywords" content="React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在哪获取数据：componentWillMount vs componentDidMount">
 <meta property="og:url" content="http://yanmeng.me/2017/09/11/Where-to-Fetch-Data-componentWillMount-vs-componentDidMount/index.html">
 <meta property="og:site_name" content="position_柚子君">
-<meta property="og:description" content="当你需要为 React 组件获取一些数据的时候，你会从什么地方获取呢？  这个问题一直都存在。">
-<meta property="og:updated_time" content="2017-09-17T13:32:23.000Z">
+<meta property="og:description" content="前段时间被问到这个问题，就 google 里一下，发现这篇文章讲到了重点，就翻译出来和大家一起分享。 原文链接：Where to Fetch Data: componentWillMount vs componentDidMount 校对：Cherry  当你需要为 React 组件获取一些数据的时候，你会从什么地方获取呢？  这个问题一直都存在。">
+<meta property="og:updated_time" content="2017-09-17T13:40:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在哪获取数据：componentWillMount vs componentDidMount">
-<meta name="twitter:description" content="当你需要为 React 组件获取一些数据的时候，你会从什么地方获取呢？  这个问题一直都存在。">
+<meta name="twitter:description" content="前段时间被问到这个问题，就 google 里一下，发现这篇文章讲到了重点，就翻译出来和大家一起分享。 原文链接：Where to Fetch Data: componentWillMount vs componentDidMount 校对：Cherry  当你需要为 React 组件获取一些数据的时候，你会从什么地方获取呢？  这个问题一直都存在。">
 
 
 
@@ -381,7 +381,10 @@
       
 
       
-        <blockquote>
+        <p>前段时间被问到这个问题，就 google 里一下，发现这篇文章讲到了重点，就翻译出来和大家一起分享。</p>
+<p>原文链接：<a href="https://daveceddia.com/where-fetch-data-componentwillmount-vs-componentdidmount/" target="_blank" rel="external">Where to Fetch Data: componentWillMount vs componentDidMount</a></p>
+<p>校对：<a href="https://github.com/sunshine940326" target="_blank" rel="external">Cherry</a></p>
+<blockquote>
 <p>当你需要为 React 组件获取一些数据的时候，你会从什么地方获取呢？</p>
 </blockquote>
 <p>这个问题一直都存在。<br><a id="more"></a></p>
@@ -400,7 +403,7 @@
 <p>事实证明，<code>componentDidMount</code> 是<strong>发送数据请求的最好的位置</strong>，有以下两个原因：</p>
 <p>1、使用 <strong>Did</strong>Mount 能够清晰的看出，直到初始渲染之后，数据才会被加载。这就提醒你要适当的去设置初始的 <code>state</code>，就不会因为 <a href="https://daveceddia.com/watch-out-for-undefined-state/" target="_blank" rel="external">state 为 undefined 而导致错误</a></p>
 <p>2、如果你需要在服务端（SSR/同构/其他的流行用语）渲染应用，那么 <code>componentWillMount</code> 将会被调用<strong>两次</strong> —— 一次在服务端，一次在客户端，当然，这应该是你不愿意看到的。那么把数据加载的代码放在 <code>componentDidMount</code> 中能确保只会从客户端获取数据。</p>
-<h3 id="Wrap-Up"><a href="#Wrap-Up" class="headerlink" title="Wrap Up"></a>Wrap Up</h3><p>我希望<strong>在哪</strong>加载数据的这个问题已经讲清楚了。如果你仍然不确定调用 AJAX 请求和加载数据的最好方法是什么，请阅读我的这篇文章 <a href="https://daveceddia.com/ajax-requests-in-react/" target="_blank" rel="external">在 React 中发送 AJAX 请求</a></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>我希望<strong>在哪</strong>加载数据的这个问题已经讲清楚了。如果你仍然不确定调用 AJAX 请求和加载数据的最好方法是什么，请阅读我的这篇文章 <a href="https://daveceddia.com/ajax-requests-in-react/" target="_blank" rel="external">在 React 中发送 AJAX 请求</a></p>
 
       
     </div>
@@ -648,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#componentWillMount"><span class="nav-number">1.</span> <span class="nav-text">componentWillMount</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#componentDidMount"><span class="nav-number">2.</span> <span class="nav-text">componentDidMount</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wrap-Up"><span class="nav-number">3.</span> <span class="nav-text">Wrap Up</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#componentWillMount"><span class="nav-number">1.</span> <span class="nav-text">componentWillMount</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#componentDidMount"><span class="nav-number">2.</span> <span class="nav-text">componentDidMount</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
