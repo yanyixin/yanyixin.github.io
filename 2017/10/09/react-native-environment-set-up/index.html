@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,React Native," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://oux6kzfrp.bkt.clouddn.com/aoteman.jpg?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="这里建议大家看英文版的安装文档，因为有一些步骤中文版的和英文版的不一样。下面以 react-native 官方提供的例子来分别说一下 android 和 ios 的环境配置过程。">
+<meta name="keywords" content="JavaScript,React Native">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native 在 Mac OS 系统下的环境配置">
+<meta property="og:url" content="http://yanmeng.me/2017/10/09/react-native-environment-set-up/index.html">
+<meta property="og:site_name" content="position_柚子君">
+<meta property="og:description" content="这里建议大家看英文版的安装文档，因为有一些步骤中文版的和英文版的不一样。下面以 react-native 官方提供的例子来分别说一下 android 和 ios 的环境配置过程。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-f206c43448e03de8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-18d5b5b7ec4ad5c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-0a45d01203dd0c44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-8894c7173825a96a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-82ffc94fd62b1d55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-d15410f1b79b940f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-45cc4372758bb5a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-aa955afd87a48385.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-31eb713956f01358.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-2b0dec3570634f05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-8a9529831ea2795b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-225325c77cb71964.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-7b4dfc87585c5a05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-deec5b5a674ef810.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-1ff32e41ab52ce1d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-d21f5d21c2145aff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-1e9088e7435a23b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-ab153e2e9efc72a8.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*qh3uXGQaNfbgVSpwQKYYvw.png">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-b3a27f1a1f3955ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/h/700">
+<meta property="og:updated_time" content="2017-10-09T11:52:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Native 在 Mac OS 系统下的环境配置">
+<meta name="twitter:description" content="这里建议大家看英文版的安装文档，因为有一些步骤中文版的和英文版的不一样。下面以 react-native 官方提供的例子来分别说一下 android 和 ios 的环境配置过程。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1561693-f206c43448e03de8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yanmeng.me/2017/10/09/react-native-environment-set-up/"/>
+
+
+
+
+
+  <title>React Native 在 Mac OS 系统下的环境配置 | position_柚子君</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f504c7f6160a763bcac725ebe10164ab";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">position_柚子君</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yanmeng.me/2017/10/09/react-native-environment-set-up/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Meng Yan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oux6kzfrp.bkt.clouddn.com/blog/avatarIMG_3716.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="position_柚子君">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">React Native 在 Mac OS 系统下的环境配置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T19:50:27+08:00">
+                2017-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/09/react-native-environment-set-up/" class="leancloud_visitors" data-flag-title="React Native 在 Mac OS 系统下的环境配置">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这里建议大家看<a href="https://facebook.github.io/react-native/docs/getting-started.html" target="_blank" rel="external">英文版的安装文档</a>，因为有一些步骤中文版的和英文版的不一样。下面以 react-native 官方提供的例子来分别说一下 android 和 ios 的环境配置过程。</p>
+<a id="more"></a>
+<h2 id="一、必须安装的软件"><a href="#一、必须安装的软件" class="headerlink" title="一、必须安装的软件"></a>一、必须安装的软件</h2><blockquote>
+<p>无论是 android 还是 ios 都需要安装下面的软件。</p>
+<h3 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h3></blockquote>
+<p> Mac 系统的包管理器，用于安装 NodeJS 和一些其他必需的工具软件。可以查看<a href="https://brew.sh" target="_blank" rel="external">官网链接</a>，在控制台中输入下面的一条命令即可：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></div></pre></td></tr></table></figure>
+<p>检查是否安装成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew -v</div></pre></td></tr></table></figure></p>
+<p>之后控制台会输出 <code>Homebrew</code> 的版本信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yanmengdeiMac:~ yanmeng$ brew -v</div><div class="line">Homebrew 1.3.3</div><div class="line">Homebrew/homebrew-core (git revision 94fe; last commit 2017-09-25)</div></pre></td></tr></table></figure>
+<h3 id="Node-和-Watchman"><a href="#Node-和-Watchman" class="headerlink" title="Node 和 Watchman"></a>Node 和 Watchman</h3><p><a href="https://facebook.github.io/watchman/docs/install.html" target="_blank" rel="external">Watchman</a> 是由 Facebook 提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager 可以快速捕捉文件的变化从而实现实时刷新）。</p>
+<p>上一步我们已经安装了 <code>Homebrew</code>，那 Node 和 Watchman 就可以用它来安装了。具体命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew install node</div><div class="line">brew install watchman</div></pre></td></tr></table></figure>
+<p><strong>注意</strong>：请确保你的 node 版本号在 4 及其以上版本。</p>
+<h2 id="二、安装-React-Native-和示例项目"><a href="#二、安装-React-Native-和示例项目" class="headerlink" title="二、安装 React Native 和示例项目"></a>二、安装 React Native 和示例项目</h2><h3 id="安装-React-Native"><a href="#安装-React-Native" class="headerlink" title="安装 React Native"></a>安装 React Native</h3><p>在 bash 中执行下面的命令：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g react-native-cli</div></pre></td></tr></table></figure></p>
+<h3 id="安装项目文件"><a href="#安装项目文件" class="headerlink" title="安装项目文件"></a>安装项目文件</h3><p>在 bash 中执行下面的命令：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">react-native init AwesomeProject</div><div class="line">cd AwesomeProject</div></pre></td></tr></table></figure></p>
+<h2 id="三、安装工具"><a href="#三、安装工具" class="headerlink" title="三、安装工具"></a>三、安装工具</h2><h3 id="1、IOS"><a href="#1、IOS" class="headerlink" title="1、IOS"></a>1、IOS</h3><h4 id="a-真机"><a href="#a-真机" class="headerlink" title="a: 真机"></a>a: <strong>真机</strong></h4><h4 id="b-模拟器"><a href="#b-模拟器" class="headerlink" title="b: 模拟器"></a>b: <strong>模拟器</strong></h4><p>其实 <code>ios</code> 的环境安装非常之简单，只要安装 <code>Xcode IDE</code> 就可以了。<code>ios</code> 大法好啊。可以通过 App Store 或是到 <a href="https://developer.apple.com/xcode/downloads/" target="_blank" rel="external">Apple 开发者官网</a>上下载。这一步骤会同时安装 <code>Xcode IDE</code> 和 <code>Xcode</code> 的命令行工具。需要注意的是，<code>React Native</code> 目前需要 <code>Xcode 8.0</code> 或更高版本。<br> 安装好之后，打开 <code>Preferences</code>，点击 <code>Locations</code>，检查一下版本号是否正确。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-f206c43448e03de8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="Xcode 检查版本号"></p>
+<p>ok 了之后，就可以进行<strong>第四步</strong>。</p>
+<h3 id="2、Android"><a href="#2、Android" class="headerlink" title="2、Android"></a>2、Android</h3><h4 id="a-真机-1"><a href="#a-真机-1" class="headerlink" title="a: 真机"></a>a: <strong>真机</strong></h4><h5 id="打开-USB-调试"><a href="#打开-USB-调试" class="headerlink" title="打开 USB 调试"></a>打开 USB 调试</h5><p>确保你的设备已经打开了 USB 调试。</p>
+<h5 id="检查是否连接成功"><a href="#检查是否连接成功" class="headerlink" title="检查是否连接成功"></a>检查是否连接成功</h5><p>在 bash 中执行下面的命令来检查手机是否已经和电脑连接：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb devices</div></pre></td></tr></table></figure></p>
+<p>如果连接成功了，输入上面的那条命令之后，就会出现下面的信息：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-18d5b5b7ec4ad5c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="真机连接"></p>
+<p><strong>注意：</strong>在连接真机的时候需要把虚拟机关闭，确保<strong>只连接一个设备</strong> </p>
+<p>如果连接成功了，可以进行<strong>第四步</strong>。</p>
+<h4 id="b-模拟器-1"><a href="#b-模拟器-1" class="headerlink" title="b: 模拟器"></a>b: <strong>模拟器</strong></h4><p> <strong>安装软件 <code>Android Studio</code></strong></p>
+<p><code>Android Studio</code> 需要 <strong><code>Java SE Development Kit (JDK)</code></strong> 的支持。你可以在命令行中输入<code>javac -version</code> 来查看你当前安装的 <code>JDK</code> 版本。如果版本不符合要求，可以到 <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">官网</a>上下载。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-0a45d01203dd0c44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="java 下载"></p>
+<p><code>java</code> 环境配置好之后，接下来就是要从 <a href="https://developer.android.com/studio/index.html" target="_blank" rel="external">官网</a> 下载 <code>Android Studio</code>。</p>
+<p><strong>注意：</strong> 在安装过程中，在 <code>Install Type</code> 这一步的时候<strong>最好选择 Custom</strong>。因为可以自定义一些设置和安装的组件。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-8894c7173825a96a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="需要更改的地方"></p>
+<p>选择好之后，点击 next，进入下一步，这时记得勾选下图中用红圈圈标出的两项。箭头指向的路径就是组件安装的路径。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-82ffc94fd62b1d55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="sdk下载的地方.png"></p>
+<p>这两项选择好之后，一路 next 就可以啦。</p>
+<p>安装好 <code>Android Studio</code> 之后，还要下载需要的<code>sdk</code>。如下图，点击 <code>Configure</code> 下的 <code>SDK Manager</code>，进入 <code>sdk</code> 配置页面。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-d15410f1b79b940f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="SDK Manager"></p>
+<p>在窗口的右下角勾选 <code>show-package-details</code>。然后在 <code>Android 6.0 (Marshmallow)</code> 下勾选以下这些选项：</p>
+<ul>
+<li>Google APIs</li>
+<li>Android SDK Platform 23</li>
+<li>Source for Android 23</li>
+<li>Intel x86 Atom System Image</li>
+<li>Google APIs Intel x86 Atom_64 System Image</li>
+</ul>
+<p>选中之后，点击 <code>Apply</code>，就可以开始下载了。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-45cc4372758bb5a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="android-6.0配置"></p>
+<p><strong>下一步</strong>是进入 <code>SDK Tools</code> 窗口。同样，在窗口的右下角勾选 <code>show-package-details</code>。找到  <code>Android SDK Build-Tools</code> 并展开它，选择 <code>23.0.1</code>，点击 Apply，就可以开始下载了。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-aa955afd87a48385.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="SDK-Tools.png"></p>
+<p>到目前为止，需要的 <code>sdk</code> 已经下载好了，下面咱们就开始安装虚拟机了。虚拟机目前有两种方式，一种是在 <code>Android Studio</code> 中安装它自带的虚拟机；一种是使用 <code>genymotion</code> 虚拟机。在这里推荐第二种，简单快捷方便，所以下面主要介绍一下 <code>genymotion</code> 的下载和安装～</p>
+<h3 id="genymotion"><a href="#genymotion" class="headerlink" title="genymotion"></a>genymotion</h3><p><code>genymotion</code> 的下载地址：<a href="https://www.genymotion.com/download/" target="_blank" rel="external">https://www.genymotion.com/download/</a> 。 这里需要登陆一下，才能进入到下载的页面。记得把自己的账号记住，下面还会用到。</p>
+<p><code>genymotion</code> 依赖 <code>virtualbox</code>，<code>virtualbox</code> 的下载地址在这里： <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="external">https://www.virtualbox.org/wiki/Downloads</a></p>
+<p>先安装 <code>virtualbox</code>，然后再安装 <code>genymotion</code>。下载下来的会有两个包，记得都要安装一下。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-31eb713956f01358.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="需要安装两个软件"></p>
+<p>打开 <code>genymotion</code> 的时候会让登陆一下，就是你刚刚记住的账号。然后就可以安装虚拟器了。如下图，点击 <code>Add</code>，可以选择一个手机类型和安卓系统的版本进行安装。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-2b0dec3570634f05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="添加虚拟器"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-8a9529831ea2795b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="选择虚拟器"></p>
+<p>下载的过程还是挺慢的，需要耐心等待。下载好之后就能看到有一个手机模拟器出现在你本地的列表中啦。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-225325c77cb71964.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="成功添加虚拟器"></p>
+<h2 id="三、ANDROID-HOME-变量配置"><a href="#三、ANDROID-HOME-变量配置" class="headerlink" title="三、ANDROID_HOME 变量配置"></a>三、ANDROID_HOME 变量配置</h2><p>React Native 工具需要配置一些环境变量以便能够用本地代码构建 app。</p>
+<p>首先在控制台中输入下面的命令，打开 <code>.bash_profile</code> 文件。如果没有的话，可以新建一个。新建文件的命令是  <code>touch .bash_profile</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open ~/.bash_profile</div></pre></td></tr></table></figure></p>
+<p>在 <code>.bash_profile</code> 文件中添加一下变量：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> ANDROID_HOME=~<span class="regexp">/Library/</span>Android/sdk</div><div class="line"><span class="keyword">export</span> PATH=$PATH:$ANDROID_HOME/tools</div><div class="line"><span class="keyword">export</span> PATH=$PATH:$ANDROID_HOME/platform-tools</div></pre></td></tr></table></figure></p>
+<p><strong>注意：</strong> 如果你是通过 <code>Android Studio</code> 安装的 sdk，那默认的位置就是 <code>~/Library/Android/sdk</code>。否则的话就是安装的时候你自己定义的位置。编辑好之后，记得保存。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-7b4dfc87585c5a05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="配置文件.png"></p>
+<p><strong>保存之后，在控制台执行下面的命令，让配置生效。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ~/.bash_profile</div></pre></td></tr></table></figure></p>
+<p>检查配置是否生效，可以在控制台执行下面的命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo $ANDROID_HOME</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-deec5b5a674ef810.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="配置android-home变量.png"></p>
+<h2 id="四、执行任务"><a href="#四、执行任务" class="headerlink" title="四、执行任务"></a>四、执行任务</h2><p>在第二步中我们已经安装好 react-native 和项目啦，现在让我们把项目运行起来～</p>
+<h3 id="ios"><a href="#ios" class="headerlink" title="ios"></a>ios</h3><p>在 ios 端运行的话，在项目所在的目录下执行下面的命令就可以了：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native run-ios</div></pre></td></tr></table></figure></p>
+<h3 id="android"><a href="#android" class="headerlink" title="android"></a>android</h3><p>在 android 端运行的话，先打开 <code>Genymotion</code>，然后再打开一个安卓的虚拟机，然后在你的项目目录下，执行下面的命令就可以了：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native run-android</div></pre></td></tr></table></figure></p>
+<h2 id="五、可能遇到的问题"><a href="#五、可能遇到的问题" class="headerlink" title="五、可能遇到的问题"></a>五、可能遇到的问题</h2><p>1、<code>SDK location not found</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">A problem occurred configuring project <span class="string">':app'</span>.</div><div class="line">&gt; SDK location not found. Define location <span class="keyword">with</span> sdk.dir <span class="keyword">in</span> the local.properties file or <span class="keyword">with</span> an ANDROID_HOME environment variable.</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-1ff32e41ab52ce1d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="遇到的问题.png"></p>
+<p>如果遇到这个问题，<code>stackoverflow</code> 上的答案在<a href="https://stackoverflow.com/questions/32634352/react-native-android-build-failed-sdk-location-not-found" target="_blank" rel="external">这里</a>。</p>
+<p>2、<code>adb: command not found</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-d21f5d21c2145aff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="adb找不到"></p>
+<p><code>adb</code> 全名 <code>Andorid Debug Bridge</code>。这是一个 Debug 工具，是要连接开发电脑和你的调试手机的。</p>
+<p>如果出现这个错误，可能就是<strong>没有配置 Android 的环境变量</strong>，或者配置了环境变量，但是<strong>没有让它生效</strong>。关于这两项的配置，可以参考上面的 <strong>ANDROID_HOME 变量配置</strong> 这一部分。</p>
+<p>3、<code>No connected devices</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-1e9088e7435a23b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="没有连接中的设备"></p>
+<p>这个看英文也知道是什么意思啦，就是没有连接中的设备。如果用的是模拟机的话，就要打开模拟机；如果是真机的话，记得要连接上手机。<br>可以运行 <code>adb devices</code> 来检查连接中的设备。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-ab153e2e9efc72a8.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="连接设备.jpeg"></p>
+<p>4、<code>No bundle url present</code></p>
+<blockquote>
+<p>No bundle url present. Make sure you’re running a packager server or have included a .jsbundle file in your application bundle.</p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*qh3uXGQaNfbgVSpwQKYYvw.png" alt="No bundle url present"></p>
+<p>在 ios 运行的时候如果遇到这种情况，就把项目目录下 ios 文件夹中的 build 文件删除，然后再运行就可以了。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-b3a27f1a1f3955ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/h/700" alt="删除build文件"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持原创</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://oux6kzfrp.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1.jpeg" alt="Meng Yan WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://oux6kzfrp.bkt.clouddn.com/%E6%94%AF%E4%BB%98%E5%AE%9D%E4%BA%8C%E7%BB%B4%E7%A0%81.jpeg" alt="Meng Yan Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/React-Native/" rel="tag"># React Native</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/11/Where-to-Fetch-Data-componentWillMount-vs-componentDidMount/" rel="next" title="在哪获取数据：componentWillMount vs componentDidMount">
+                <i class="fa fa-chevron-left"></i> 在哪获取数据：componentWillMount vs componentDidMount
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://oux6kzfrp.bkt.clouddn.com/blog/avatarIMG_3716.JPG"
+               alt="Meng Yan" />
+          <p class="site-author-name" itemprop="name">Meng Yan</p>
+           
+              <p class="site-description motion-element" itemprop="description">前端，JavaScript，CSS，生活，小女生</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yanyixin" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2863604000/profile?topnav=1&wvr=6" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/meng-meng-75-61-6/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/57221ca41532bc00624a1d0a" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-angle-double-down"></i>
+                  
+                    
+                      掘金
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、必须安装的软件"><span class="nav-number">1.</span> <span class="nav-text">一、必须安装的软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Homebrew"><span class="nav-number">1.1.</span> <span class="nav-text">Homebrew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-和-Watchman"><span class="nav-number">1.2.</span> <span class="nav-text">Node 和 Watchman</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装-React-Native-和示例项目"><span class="nav-number">2.</span> <span class="nav-text">二、安装 React Native 和示例项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-React-Native"><span class="nav-number">2.1.</span> <span class="nav-text">安装 React Native</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装项目文件"><span class="nav-number">2.2.</span> <span class="nav-text">安装项目文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、安装工具"><span class="nav-number">3.</span> <span class="nav-text">三、安装工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、IOS"><span class="nav-number">3.1.</span> <span class="nav-text">1、IOS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-真机"><span class="nav-number">3.1.1.</span> <span class="nav-text">a: 真机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-模拟器"><span class="nav-number">3.1.2.</span> <span class="nav-text">b: 模拟器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、Android"><span class="nav-number">3.2.</span> <span class="nav-text">2、Android</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-真机-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">a: 真机</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#打开-USB-调试"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">打开 USB 调试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#检查是否连接成功"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">检查是否连接成功</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-模拟器-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">b: 模拟器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#genymotion"><span class="nav-number">3.3.</span> <span class="nav-text">genymotion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、ANDROID-HOME-变量配置"><span class="nav-number">4.</span> <span class="nav-text">三、ANDROID_HOME 变量配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、执行任务"><span class="nav-number">5.</span> <span class="nav-text">四、执行任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ios"><span class="nav-number">5.1.</span> <span class="nav-text">ios</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#android"><span class="nav-number">5.2.</span> <span class="nav-text">android</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、可能遇到的问题"><span class="nav-number">6.</span> <span class="nav-text">五、可能遇到的问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Meng Yan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Pisces
+    </a>
+  </div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("IHTzpb0fC94ev9hG4fQa60fR-gzGzoHsz", "wkXHDvgJLdiWePOmQmfWorPf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
