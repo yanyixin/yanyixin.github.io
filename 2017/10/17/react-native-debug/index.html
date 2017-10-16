@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,React Native," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://oux6kzfrp.bkt.clouddn.com/aoteman.jpg?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="工欲善其事，必先利其器。有了一个顺手的调试工具和调试方法，能很大的提高开发效率。  本文对于一些基本的调试功能会简单的介绍一下他们的原理和使用方法，具体的操作可以看官网的介绍，上面已经讲的很清楚了，就不浪费时间再写一遍了。 本文主要讲一下如何使用 React Developer Tools 配合模拟器自带的调试功能来调试，以及如何 debug。">
+<meta name="keywords" content="JavaScript,React Native">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native 调试进阶篇">
+<meta property="og:url" content="http://yanmeng.me/2017/10/17/react-native-debug/index.html">
+<meta property="og:site_name" content="position_柚子君">
+<meta property="og:description" content="工欲善其事，必先利其器。有了一个顺手的调试工具和调试方法，能很大的提高开发效率。  本文对于一些基本的调试功能会简单的介绍一下他们的原理和使用方法，具体的操作可以看官网的介绍，上面已经讲的很清楚了，就不浪费时间再写一遍了。 本文主要讲一下如何使用 React Developer Tools 配合模拟器自带的调试功能来调试，以及如何 debug。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-b70675c564a169f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-8483237380057181.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-9aaea8c032aedb0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-4e739b08443640af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-fc53ecdfae2e575d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-859628f46054ded2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-77d0a5bb806e6034.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-801cb3b31ce86ef7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-e9d7ad9cb1778804.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-486caf0d0844483b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-e0388e30c136f307.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-7ca25d605453a4a5.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-2e6e50df390c9b82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400">
+<meta property="og:updated_time" content="2017-10-16T16:19:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Native 调试进阶篇">
+<meta name="twitter:description" content="工欲善其事，必先利其器。有了一个顺手的调试工具和调试方法，能很大的提高开发效率。  本文对于一些基本的调试功能会简单的介绍一下他们的原理和使用方法，具体的操作可以看官网的介绍，上面已经讲的很清楚了，就不浪费时间再写一遍了。 本文主要讲一下如何使用 React Developer Tools 配合模拟器自带的调试功能来调试，以及如何 debug。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1561693-b70675c564a169f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yanmeng.me/2017/10/17/react-native-debug/"/>
+
+
+
+
+
+  <title>React Native 调试进阶篇 | position_柚子君</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f504c7f6160a763bcac725ebe10164ab";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">position_柚子君</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yanmeng.me/2017/10/17/react-native-debug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Meng Yan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oux6kzfrp.bkt.clouddn.com/blog/avatarIMG_3716.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="position_柚子君">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">React Native 调试进阶篇</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-17T00:17:46+08:00">
+                2017-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/17/react-native-debug/" class="leancloud_visitors" data-flag-title="React Native 调试进阶篇">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>工欲善其事，必先利其器。有了一个顺手的调试工具和调试方法，能很大的提高开发效率。</p>
+</blockquote>
+<p>本文对于一些基本的调试功能会简单的介绍一下他们的原理和使用方法，具体的操作可以看<a href="https://facebook.github.io/react-native/docs/debugging.html" target="_blank" rel="external">官网的介绍</a>，上面已经讲的很清楚了，就不浪费时间再写一遍了。</p>
+<p>本文主要讲一下如何使用 <code>React Developer Tools</code> 配合模拟器自带的调试功能来调试，以及如何 debug。</p>
+<a id="more"></a>
+<h2 id="刷新功能"><a href="#刷新功能" class="headerlink" title="刷新功能"></a>刷新功能</h2><h3 id="刷新应用"><a href="#刷新应用" class="headerlink" title="刷新应用"></a>刷新应用</h3><p>在 iOS 模拟器中按下<code>Command⌘ + R</code>，Android 模拟器上对应的则是 <code>按两下 R</code>。相当于开发者菜单中的 <code>Reload js</code>，即将你项目中 js 代码部分重新生成 bundle，然后传输给模拟器或手机。</p>
+<blockquote>
+<p>如果在iOS模拟器中按下 <code>Command⌘ + R</code> 没啥感觉，则注意检查 Hardware 菜单中，Keyboard 选项下的 <code>Connect Hardware Keyboard</code> 是否被选中。</p>
+</blockquote>
+<h3 id="自动刷新应用"><a href="#自动刷新应用" class="headerlink" title="自动刷新应用"></a>自动刷新应用</h3><p>选择开发菜单中的  <code>Enable Live Reload</code> 可以开启自动刷新。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-b70675c564a169f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt="自动刷新"></p>
+<p>打开该功能之后，React Native 能够监听你的 js 变化，自动生成 bundle 然后传输到你的模拟器或者手机上。<br>但是需要注意的是，此功能和 <code>Reload js</code> 一样，每次刷新的时候都会返回到启动页面。</p>
+<h3 id="自动热更新功能"><a href="#自动热更新功能" class="headerlink" title="自动热更新功能"></a>自动热更新功能</h3><p>选择开发菜单中的  <code>Enable Hot Reloading</code> 可以开启自动热更新功能。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-8483237380057181.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt="开启热更新功能"></p>
+<p>如果说上面的 <code>Enable Live Reload</code> 功能解放了你的双手，那么 <code>Enable Hot Reloading</code> 功能还解放了你的时间。当你每次保存修改好的代码的时候，<code>Hot Reloading</code> 功能便会生成此次修改代码的增量包，然后传输到手机或模拟器上以实现热加载。</p>
+<p>并且，<code>Enable Hot Reloading</code> 的刷新功能是在当前页面刷新，而不是返回到启动页面。</p>
+<h2 id="Errors-and-Warnings"><a href="#Errors-and-Warnings" class="headerlink" title="Errors and Warnings"></a>Errors and Warnings</h2><p>红屏或黄屏提示都只会在开发版本中显示，正式的离线包中是不会显示的。</p>
+<h3 id="Errors"><a href="#Errors" class="headerlink" title="Errors"></a>Errors</h3><p>应用内的报错会以全屏红色显示在应用中（调试模式下），我们称为红屏（red box）报错。你可以使用 <code>console.error()</code> 来手动触发红屏错误。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-9aaea8c032aedb0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt="红屏警告"></p>
+<p>部分代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">AwesomeProject</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  </div><div class="line">  <span class="keyword">constructor</span>(props) &#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="keyword">this</span>.onPressLearnMore = <span class="keyword">this</span>.onPressLearnMore.bind(<span class="keyword">this</span>);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  onPressLearnMore() &#123;</div><div class="line">    <span class="built_in">console</span>.error(<span class="string">"这是一个红屏警告"</span>);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;styles.container&#125;</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">          <span class="attr">style</span>=<span class="string">&#123;styles.button&#125;</span></div><div class="line">          <span class="attr">onPress</span>=<span class="string">&#123;this.onPressLearnMore&#125;</span></div><div class="line">          <span class="attr">title</span>=<span class="string">"点我"</span></div><div class="line">        /&gt;</div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Warnings"><a href="#Warnings" class="headerlink" title="Warnings"></a>Warnings</h3><p>应用内的警告会以全屏黄色显示在应用中（调试模式下），我们称为黄屏（yellow box）报错。点击警告可以查看详情或是忽略掉。 和红屏报警类似，你可以使用 <code>console.warn()</code> 来手动触发黄屏警告。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-4e739b08443640af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt="黄屏警告"></p>
+<p>在默认情况下，开发模式中启用了黄屏警告。可以通过以下代码关闭：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.disableYellowBox = <span class="literal">true</span>;</div><div class="line"><span class="built_in">console</span>.warn(<span class="string">'YellowBox is disabled.'</span>);</div></pre></td></tr></table></figure></p>
+<p>也可以通过代码屏蔽指定的警告，像下面这样调用 ignoreWarnings 方法，参数为一个数组：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.ignoredYellowBox = [<span class="string">'Warning: Each child'</span>];</div></pre></td></tr></table></figure></p>
+<p>数组里面可以包含多个你想忽略的告警的关键词，关键词希望适当的精确，屏蔽掉一些不必要的警告。</p>
+<p><strong>注意：</strong> 个人认为<strong>没有必要完全关闭</strong>黄屏警告，因为一些黄屏警告是因为我们的代码不规范造成的，通过黄屏警告也可以知道我们的代码有哪些不规范的地方。</p>
+<h2 id="访问控制台日志"><a href="#访问控制台日志" class="headerlink" title="访问控制台日志"></a>访问控制台日志</h2><blockquote>
+<p>下面的两种方法不能同时运行，否则其中一种将会无效</p>
+</blockquote>
+<h3 id="在终端查看"><a href="#在终端查看" class="headerlink" title="在终端查看"></a>在终端查看</h3><p>可以在终端中运行如下命令来查看控制台的日志：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">react-native log-ios</div><div class="line">react-native log-android</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-fc53ecdfae2e575d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt="终端查看log"></p>
+<p>如果是 Android 应用，无论是运行在<strong>模拟器或是真机</strong>上，都可以通过在终端命令行里运行 <code>adb logcat *:S ReactNative:V ReactNativeJS:V</code> 命令来查看。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-859628f46054ded2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt="在终端打印log.png"></p>
+<h3 id="通过-Chrome-开发者工具查看"><a href="#通过-Chrome-开发者工具查看" class="headerlink" title="通过 Chrome 开发者工具查看"></a>通过 Chrome 开发者工具查看</h3><p>在开发者菜单中选择 <code>Debug JS Remotely</code> 选项，即可以开始在 Chrome 中调试 JavaScript 代码。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-77d0a5bb806e6034.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt="打开 Chrome 开发者工具"></p>
+<p>打开 Chrome 的开发者工具即可看到打印出来的日志。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-801cb3b31ce86ef7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt="在 Chrome 开发者工具的控制台查看 log"></p>
+<p>在 Chrome 开发者工具中我们也可以调试代码，给代码打断点，相信大家都知道相关的操作，这里就不再详细的讲了。</p>
+<h4 id="在真机上调试"><a href="#在真机上调试" class="headerlink" title="在真机上调试"></a>在真机上调试</h4><p>如果在 Android 5.0+ 的设备上调试，将设备通过 USB 连接到电脑上后，可以使用 <a href="https://developer.android.com/studio/command-line/adb.html" target="_blank" rel="external">adb 命令行工具</a>来设定从设备到电脑的端口转发：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb reverse tcp:<span class="number">8081</span> tcp:<span class="number">8081</span> <span class="comment">// 第一个是主机的端口号，第二个是真机／模拟器的端口号</span></div></pre></td></tr></table></figure>
+<p>如果设备 Android 版本在 5.0 以下，则可以在开发者菜单中选择 <code>Dev Settings - Debug server host for device</code>，然后在其中填入电脑的 <code>IP地址:端口</code>。</p>
+<p>然后就可以和上面的示例一样来调试啦。</p>
+<h2 id="Show-Perf-Monitor"><a href="#Show-Perf-Monitor" class="headerlink" title="Show Perf Monitor"></a>Show Perf Monitor</h2><p>该功能主要是对 UI 和 JavaScript 的 FPS  的监控。</p>
+<blockquote>
+<p>FPS 是测量用于保存、显示动态视频的信息数量。 通俗来讲就是指动画或视频的画面数。 例如在电影视频及数字视频上，每一帧都是静止的图象；快速连续地显示帧便形成了运动的假象。 每秒钟帧数(FPS) 愈多，所显示的动作就会愈流畅。</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-e9d7ad9cb1778804.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt="打开性能监控"></p>
+<p>打开之后就能看到性能监控的数据了。具体关于 React Native 性能的分析可以看<a href="https://reactnative.cn/docs/0.49/performance.html#content" target="_blank" rel="external">官网的介绍</a>，现在本文暂不做详细的讲解，之后可能会专门开一个关于性能的文章。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-486caf0d0844483b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt="性能监控的数据"></p>
+<h2 id="React-Devtools"><a href="#React-Devtools" class="headerlink" title="React Devtools"></a>React Devtools</h2><blockquote>
+<p>需要 React Native 0.43 或者更高的版本</p>
+</blockquote>
+<p>我们平时在开发页面的时候，都用过查找元素的功能，模拟器自带的调试功能个人感觉不是很友好，但是官方提供了 react-devtools 可以很好的来查找 Dom 元素。</p>
+<p>如果要使用它，需要在全局安装：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g react-devtools</div></pre></td></tr></table></figure></p>
+<p>在项目文件的目录下运行启动命令：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-devtools</div></pre></td></tr></table></figure>
+<p>这时会弹出 react-devtools 窗口，里面是我们页面的元素。 react-devtools 的优点是可以搭配模拟器的 Toggle Inspector 功能一起使用，效果棒棒哒，哈哈。</p>
+<p>首先我们先开启模拟器的 Toggle Inspector 功能。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-e0388e30c136f307.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt="开启 Toggle Inspector功能"></p>
+<p>下面是使用方法：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-7ca25d605453a4a5.gif?imageMogr2/auto-orient/strip" alt="react-devtools 的使用方法"></p>
+<p>打开调试功能之后我们能看到，调试功能的界面有很多 Tab，下面来解释一下各个 Tab 的功能和作用。</p>
+<h3 id="Inspect"><a href="#Inspect" class="headerlink" title="Inspect"></a>Inspect</h3><p>顾名思义，这个 Tab 是用来查找元素的，点击想要检查的元素，就可以显示出来元素的位置、样式和层级关系等。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-2e6e50df390c9b82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt="Inspect 示例"></p>
+<h3 id="Perf"><a href="#Perf" class="headerlink" title="Perf"></a>Perf</h3><p>Perf 显示的是应用的性能监控界面。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持原创</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://oux6kzfrp.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1.jpeg" alt="Meng Yan WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://oux6kzfrp.bkt.clouddn.com/%E6%94%AF%E4%BB%98%E5%AE%9D%E4%BA%8C%E7%BB%B4%E7%A0%81.jpeg" alt="Meng Yan Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/React-Native/" rel="tag"># React Native</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/09/react-native-environment-set-up/" rel="next" title="React Native 在 Mac OS 系统下的环境配置">
+                <i class="fa fa-chevron-left"></i> React Native 在 Mac OS 系统下的环境配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://oux6kzfrp.bkt.clouddn.com/blog/avatarIMG_3716.JPG"
+               alt="Meng Yan" />
+          <p class="site-author-name" itemprop="name">Meng Yan</p>
+           
+              <p class="site-description motion-element" itemprop="description">前端，JavaScript，CSS，生活，小女生</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yanyixin" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2863604000/profile?topnav=1&wvr=6" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/meng-meng-75-61-6/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/57221ca41532bc00624a1d0a" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-angle-double-down"></i>
+                  
+                    
+                      掘金
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#刷新功能"><span class="nav-number">1.</span> <span class="nav-text">刷新功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#刷新应用"><span class="nav-number">1.1.</span> <span class="nav-text">刷新应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动刷新应用"><span class="nav-number">1.2.</span> <span class="nav-text">自动刷新应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动热更新功能"><span class="nav-number">1.3.</span> <span class="nav-text">自动热更新功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Errors-and-Warnings"><span class="nav-number">2.</span> <span class="nav-text">Errors and Warnings</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Errors"><span class="nav-number">2.1.</span> <span class="nav-text">Errors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Warnings"><span class="nav-number">2.2.</span> <span class="nav-text">Warnings</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问控制台日志"><span class="nav-number">3.</span> <span class="nav-text">访问控制台日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在终端查看"><span class="nav-number">3.1.</span> <span class="nav-text">在终端查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-Chrome-开发者工具查看"><span class="nav-number">3.2.</span> <span class="nav-text">通过 Chrome 开发者工具查看</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在真机上调试"><span class="nav-number">3.2.1.</span> <span class="nav-text">在真机上调试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-Perf-Monitor"><span class="nav-number">4.</span> <span class="nav-text">Show Perf Monitor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Devtools"><span class="nav-number">5.</span> <span class="nav-text">React Devtools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Inspect"><span class="nav-number">5.1.</span> <span class="nav-text">Inspect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Perf"><span class="nav-number">5.2.</span> <span class="nav-text">Perf</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Meng Yan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Pisces
+    </a>
+  </div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("IHTzpb0fC94ev9hG4fQa60fR-gzGzoHsz", "wkXHDvgJLdiWePOmQmfWorPf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yanmeng.me/2017/10/17/react-native-debug/</loc>
+    
+    <lastmod>2017-10-16T16:19:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yanmeng.me/2017/10/09/react-native-environment-set-up/</loc>
     
     <lastmod>2017-10-09T11:52:55.000Z</lastmod>
@@ -72,14 +79,14 @@
   </url>
   
   <url>
-    <loc>http://yanmeng.me/2017/07/30/%E7%90%86%E8%A7%A3JavaScript%E5%8E%9F%E5%9E%8B/</loc>
+    <loc>http://yanmeng.me/2016/06/14/Icomoon-%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2017-08-19T07:40:30.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yanmeng.me/2016/06/14/Icomoon-%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <loc>http://yanmeng.me/2017/07/30/%E7%90%86%E8%A7%A3JavaScript%E5%8E%9F%E5%9E%8B/</loc>
     
     <lastmod>2017-08-19T07:40:30.000Z</lastmod>
     
@@ -93,14 +100,14 @@
   </url>
   
   <url>
-    <loc>http://yanmeng.me/categories/index.html</loc>
+    <loc>http://yanmeng.me/tags/index.html</loc>
     
     <lastmod>2017-08-13T06:26:31.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yanmeng.me/tags/index.html</loc>
+    <loc>http://yanmeng.me/categories/index.html</loc>
     
     <lastmod>2017-08-13T06:26:31.000Z</lastmod>
     
