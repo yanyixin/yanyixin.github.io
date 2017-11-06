@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="React Native,JavaScript,ios," />
 
 
 
@@ -94,20 +94,19 @@
 
 
 
-<meta name="description" content="今天被问到关于像素的问题，怒补了一下。    retina的原意是视网膜，retina屏就是通过技术把更多的像素点压缩到屏幕里，使肉眼无法识别屏幕上的单个像素。 那么问题来了，如何分辨retina屏呢？">
-<meta name="keywords" content="CSS">
+<meta name="description" content="上一篇讲到了在 Android 环境下一个 React Native 应用是如何启动的。这次咱们来探索一下 Ios 环境。 和上文的思路一样，咱们可以按照以下三个步骤来：  找到整个应用的入口文件 找到 native 端和 React Native 相连接的方法 找到 React Native 的入口文件  找到整个应用的入口文件用 Xcode 打开项目目录下的 ios 文件夹，在和项目名称相对应">
+<meta name="keywords" content="React Native,JavaScript,ios">
 <meta property="og:type" content="article">
-<meta property="og:title" content="了解Retina屏幕和Retina屏幕下图片的显示问题">
-<meta property="og:url" content="http://yanmeng.me/2017/07/30/了解Retina屏幕和Retina屏幕下图片的显示问题/index.html">
+<meta property="og:title" content="探索一个 React Native 应用是如何启动的 — Ios 篇">
+<meta property="og:url" content="http://yanmeng.me/2017/11/07/react-native-run-ios/index.html">
 <meta property="og:site_name" content="position_柚子君">
-<meta property="og:description" content="今天被问到关于像素的问题，怒补了一下。    retina的原意是视网膜，retina屏就是通过技术把更多的像素点压缩到屏幕里，使肉眼无法识别屏幕上的单个像素。 那么问题来了，如何分辨retina屏呢？">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-79f539a68341caf7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-fed262c4cabf8973.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-08-19T07:40:30.000Z">
+<meta property="og:description" content="上一篇讲到了在 Android 环境下一个 React Native 应用是如何启动的。这次咱们来探索一下 Ios 环境。 和上文的思路一样，咱们可以按照以下三个步骤来：  找到整个应用的入口文件 找到 native 端和 React Native 相连接的方法 找到 React Native 的入口文件  找到整个应用的入口文件用 Xcode 打开项目目录下的 ios 文件夹，在和项目名称相对应">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-f3b4261ebe6cabe8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-06T16:32:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="了解Retina屏幕和Retina屏幕下图片的显示问题">
-<meta name="twitter:description" content="今天被问到关于像素的问题，怒补了一下。    retina的原意是视网膜，retina屏就是通过技术把更多的像素点压缩到屏幕里，使肉眼无法识别屏幕上的单个像素。 那么问题来了，如何分辨retina屏呢？">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1561693-79f539a68341caf7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="探索一个 React Native 应用是如何启动的 — Ios 篇">
+<meta name="twitter:description" content="上一篇讲到了在 Android 环境下一个 React Native 应用是如何启动的。这次咱们来探索一下 Ios 环境。 和上文的思路一样，咱们可以按照以下三个步骤来：  找到整个应用的入口文件 找到 native 端和 React Native 相连接的方法 找到 React Native 的入口文件  找到整个应用的入口文件用 Xcode 打开项目目录下的 ios 文件夹，在和项目名称相对应">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1561693-f3b4261ebe6cabe8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -136,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yanmeng.me/2017/07/30/了解Retina屏幕和Retina屏幕下图片的显示问题/"/>
+  <link rel="canonical" href="http://yanmeng.me/2017/11/07/react-native-run-ios/"/>
 
 
 
 
 
-  <title>了解Retina屏幕和Retina屏幕下图片的显示问题 | position_柚子君</title>
+  <title>探索一个 React Native 应用是如何启动的 — Ios 篇 | position_柚子君</title>
   
 
 
@@ -279,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yanmeng.me/2017/07/30/了解Retina屏幕和Retina屏幕下图片的显示问题/">
+    <link itemprop="mainEntityOfPage" href="http://yanmeng.me/2017/11/07/react-native-run-ios/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Meng Yan">
@@ -296,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">了解Retina屏幕和Retina屏幕下图片的显示问题</h1>
+          <h1 class="post-title" itemprop="name headline">探索一个 React Native 应用是如何启动的 — Ios 篇</h1>
         
 
         <div class="post-meta">
@@ -308,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-30T20:38:18+08:00">
-                2017-07-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T00:30:16+08:00">
+                2017-11-07
               </time>
             
 
@@ -319,28 +318,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -348,7 +325,7 @@
 
           
           
-             <span id="/2017/07/30/了解Retina屏幕和Retina屏幕下图片的显示问题/" class="leancloud_visitors" data-flag-title="了解Retina屏幕和Retina屏幕下图片的显示问题">
+             <span id="/2017/11/07/react-native-run-ios/" class="leancloud_visitors" data-flag-title="探索一个 React Native 应用是如何启动的 — Ios 篇">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -384,23 +361,32 @@
       
 
       
-        <p>今天被问到关于像素的问题，怒补了一下。</p>
-<p>   <code>retina</code>的原意是<code>视网膜</code>，retina屏就是通过技术把更多的像素点压缩到屏幕里，使肉眼无法识别屏幕上的单个像素。</p>
-<p>那么问题来了，如何分辨retina屏呢？</p>
-<a id="more"></a>
-<p>首先了解几个名词：</p>
-<p>##设备像素比：window.devicePixelRatio（简称：dpr）</p>
-<p><code>设备像素比（dpr） = 物理像素／设备独立像素</code></p>
-<p>##物理像素<br>      物理像素就是屏幕上的最小的物理部件，就是像素点，比如iphone6的物理像素就是750x1334</p>
-<p>##设备独立像素<br>  也叫密度无关像素。可以认为是计算机坐标系统中得一个点，这个点代表一个可以由程序使用的虚拟像素(比如: css像素)，然后由相关系统转换为物理像素。比如iphone6的设备独立像素就是375x667px</p>
-<p>##每英寸像素(pixel per inch)：<br>  表示每英寸屏幕上所拥有的像素个数。ppi越大，屏幕像素密度越大。</p>
-<p>以iphone6为例：</p>
-<p>  iphone6的dpr = <code>1334/667 = 2</code></p>
-<p>dpr为2是什么意思呢，看下图<br><img src="http://upload-images.jianshu.io/upload_images/1561693-79f539a68341caf7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="retina-web-3.jpg"></p>
-<p>在普通屏幕上，1px的设备独立像素对应1物理像素。在retina屏幕下，1px的设备独立像素对应4物理像素。</p>
-<p>##位图像素<br>  一个位图像素是栅格图像(如：png, jpg, gif等)最小的数据单元。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1561693-fed262c4cabf8973.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="TB12ALnIpXXXXb1XVXXXXXXXXXX.jpg"></p>
-<p>在普通屏幕下，1个位图像素对应着1个物理像素，图片可以完美的显示。可是在retina屏幕下，1个位图像素对应着4个物理像素，由于位图像素不可以再分割，所以图片就会只能就进取色，导致图片模糊。<br>如何来处理这个问题呢。比如一个<code>200 x 300</code>的图片，如果想在retina屏幕上清晰显示的话，就要提供一个<code>400 x 600</code>的 <code>2倍图片</code>（@2x），这样的话，1个位图像素就会对应上retina屏上的1个物理像素。图片就不会模糊啦。</p>
+        <p>上一篇讲到了在 Android 环境下一个 React Native 应用是如何启动的。这次咱们来探索一下 Ios 环境。</p>
+<p>和上文的思路一样，咱们可以按照以下三个步骤来：</p>
+<ol>
+<li>找到整个应用的入口文件</li>
+<li>找到 native 端和 React Native 相连接的方法</li>
+<li>找到 React Native 的入口文件</li>
+</ol>
+<h2 id="找到整个应用的入口文件"><a href="#找到整个应用的入口文件" class="headerlink" title="找到整个应用的入口文件"></a>找到整个应用的入口文件</h2><p>用 Xcode 打开项目目录下的 ios 文件夹，在和项目名称相对应的文件夹的下面找到 main.m 文件。此文件就是整个 ios 应用的入口。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-f3b4261ebe6cabe8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ios 文件目录"></p>
+<p>打开 main.m 文件之后可以看到下面的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">#import &quot;AppDelegate.h&quot;</div><div class="line"></div><div class="line">int main(int argc, char * argv[]) &#123;</div><div class="line">  @autoreleasepool &#123;</div><div class="line">    return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>主函数 main 主要是调用 UIApplicationMain 函数。UIApplicationMain 函数是初始化程序的核心，它接收 4 个参数：<br>1、参数个数<br>2、参数内容<br>3、表示要创建的应用程序对象( app 的象征，该类必须是 UIApplication 或者它的子类)。如果传 nil 默认就表示 UIApplication 类。UIApplication 是单例模式，一个应用程序只有一个 UIApplication 对象或子对象；<br>4、表示给应用程序指定一个代理对象,该类必须遵守 UIApplicationDelegate 协议。</p>
+<p>所以总的过程大概就是 UIApplicationMain 函数创建 UIApplication，然后再根据第四个参数创建 delegate 对象，并将该 delegate 对象赋值给 UIApplication 对象中的 delegate 属性。</p>
+<p>这里再翻译一下，就是一个应用要有一个 UIApplication 作为主体来接收各类 events，然后还要有一个 UIApplicationDelegate 来处理 events。UIApplicationMain 函数会自动创建 UIApplication，所以咱们下面就来看一下 UIApplicationDelegate 是如何处理的。</p>
+<h2 id="找到-native-端和-React-Native-相连接的方法"><a href="#找到-native-端和-React-Native-相连接的方法" class="headerlink" title="找到 native 端和 React Native 相连接的方法"></a>找到 native 端和 React Native 相连接的方法</h2><p>打开 AppDelegate.m 文件，native 和 js 连接的方法就在里面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">#import &quot;AppDelegate.h&quot;</div><div class="line"></div><div class="line">#import &lt;React/RCTBundleURLProvider.h&gt;</div><div class="line">#import &lt;React/RCTRootView.h&gt;</div><div class="line"></div><div class="line">@implementation AppDelegate</div><div class="line"></div><div class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</div><div class="line">&#123;</div><div class="line">  NSURL *jsCodeLocation;</div><div class="line"></div><div class="line">  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@&quot;index.ios&quot; fallbackResource:nil];</div><div class="line"></div><div class="line">  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation</div><div class="line">                                                      moduleName:@&quot;AwesomeProject&quot;</div><div class="line">                                               initialProperties:nil</div><div class="line">                                                   launchOptions:launchOptions];</div><div class="line">  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];</div><div class="line"></div><div class="line">  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">  UIViewController *rootViewController = [UIViewController new];</div><div class="line">  rootViewController.view = rootView;</div><div class="line">  self.window.rootViewController = rootViewController;</div><div class="line">  [self.window makeKeyAndVisible];</div><div class="line">  return YES;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>在 AppDelegate.m 里面最主要的一个方法是 didFinishLaunchingWithOptions，它是在程序刚刚启动的时候执行的，所以可以在这里做一些程序启动需要的准备工作。而且 AppDelegate 是全局的，我们也可以在这里写一些全局变量或者方法。</p>
+<h3 id="RCTRootView"><a href="#RCTRootView" class="headerlink" title="RCTRootView"></a>RCTRootView</h3><p>RCTRootView 是一个 UIView 容器，就是用户所能看到的所有视图都源于 RCTRootView，它也将所有的 React Natvie 视图封装在了原生组件中。</p>
+<ul>
+<li><p>initWithBundleURL<br>当应用开始运行的时候，RCTRootView 将会从 initWithBundleURL 的参数中加载应用：(本地调试的时候是直接在本地服务器中的 index.ios 加载，发布时设置有所不同）</p>
+</li>
+<li><p>moduleName<br>在 index.ios.js 中注册的应用的名字</p>
+</li>
+<li><p>initialProperties<br>必须是NSDictionary的一个实例。这一字典参数会在内部被转化为一个可供 JS 组件调用的 JSON 对象。</p>
+</li>
+</ul>
+<h2 id="找到-React-Native-的入口文件"><a href="#找到-React-Native-的入口文件" class="headerlink" title="找到 React Native 的入口文件"></a>找到 React Native 的入口文件</h2><p>所以在本地调试的时候，initWithBundleURL 会加载本地打包的 index.ios 包。这个包就是我们的 js 文件。那么整个 js 的入口文件就是 index.ios.js 文件：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; AppRegistry &#125; <span class="keyword">from</span> <span class="string">'react-native'</span></div><div class="line"><span class="keyword">import</span> AwesomeProject <span class="keyword">from</span> <span class="string">'./js/app'</span></div><div class="line"></div><div class="line">AppRegistry.registerComponent(<span class="string">'AwesomeProject'</span>, () =&gt; AwesomeProject)</div></pre></td></tr></table></figure></p>
+<p>在入口文件中，我们注册了一个名为 AwesomeProject 的 app，然后所有的逻辑都会从这个入口开始写。</p>
 
       
     </div>
@@ -447,7 +433,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/React-Native/" rel="tag"># React Native</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/ios/" rel="tag"># ios</a>
           
         </div>
       
@@ -460,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/27/玩转-React-表单：使用-Refs/" rel="next" title="翻译 | 玩转 React 表单 —— Refs 的运用">
-                <i class="fa fa-chevron-left"></i> 翻译 | 玩转 React 表单 —— Refs 的运用
+              <a href="/2017/10/30/react-native-run-android/" rel="next" title="探索一个 React Native 应用是如何启动的 — Android 篇">
+                <i class="fa fa-chevron-left"></i> 探索一个 React Native 应用是如何启动的 — Android 篇
               </a>
             
           </div>
@@ -469,10 +459,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/30/理解JavaScript原型/" rel="prev" title="理解JavaScript原型">
-                理解JavaScript原型 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -524,8 +510,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://oux6kzfrp.bkt.clouddn.com/blog/avatarIMG_3716.JPG"
@@ -633,6 +628,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#找到整个应用的入口文件"><span class="nav-number">1.</span> <span class="nav-text">找到整个应用的入口文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#找到-native-端和-React-Native-相连接的方法"><span class="nav-number">2.</span> <span class="nav-text">找到 native 端和 React Native 相连接的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RCTRootView"><span class="nav-number">2.1.</span> <span class="nav-text">RCTRootView</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#找到-React-Native-的入口文件"><span class="nav-number">3.</span> <span class="nav-text">找到 React Native 的入口文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
