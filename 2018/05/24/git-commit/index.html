@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript," />
+  <meta name="keywords" content="git," />
 
 
 
@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="在平时的代码中，相信大家经常用到 this，可是你真的明白此 this 真的是你认为的 this 吗？今天柚子君总结了一下平时用到的 this 的场景，大家走过路过不要错过啊～ 首先咱们先来看一下《JavaScript 高级程序设计》上是怎么说的。  this 对象是在运行时基于函数的执行环境绑定的：在全局函数中，this 等于 windows，而当函数被作为某个对象的方法调用时，this 等于那">
-<meta name="keywords" content="JavaScript">
+<meta name="description" content="采用 Angular 的 commit 规范。不写 commit message 不允许提交代码。  commit 基本格式分为三部分：header、body 和 footer。header是必须的，body 和 footer 可以省略。">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="嗨， 你知道 this 吗？">
-<meta property="og:url" content="http://yanmeng.me/2017/08/13/我理解的-this/index.html">
+<meta property="og:title" content="commit提交规范">
+<meta property="og:url" content="http://yanmeng.me/2018/05/24/git-commit/index.html">
 <meta property="og:site_name" content="position_柚子君">
-<meta property="og:description" content="在平时的代码中，相信大家经常用到 this，可是你真的明白此 this 真的是你认为的 this 吗？今天柚子君总结了一下平时用到的 this 的场景，大家走过路过不要错过啊～ 首先咱们先来看一下《JavaScript 高级程序设计》上是怎么说的。  this 对象是在运行时基于函数的执行环境绑定的：在全局函数中，this 等于 windows，而当函数被作为某个对象的方法调用时，this 等于那">
-<meta property="og:updated_time" content="2017-08-19T07:40:35.000Z">
+<meta property="og:description" content="采用 Angular 的 commit 规范。不写 commit message 不允许提交代码。  commit 基本格式分为三部分：header、body 和 footer。header是必须的，body 和 footer 可以省略。">
+<meta property="og:updated_time" content="2018-05-24T15:21:32.822Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="嗨， 你知道 this 吗？">
-<meta name="twitter:description" content="在平时的代码中，相信大家经常用到 this，可是你真的明白此 this 真的是你认为的 this 吗？今天柚子君总结了一下平时用到的 this 的场景，大家走过路过不要错过啊～ 首先咱们先来看一下《JavaScript 高级程序设计》上是怎么说的。  this 对象是在运行时基于函数的执行环境绑定的：在全局函数中，this 等于 windows，而当函数被作为某个对象的方法调用时，this 等于那">
+<meta name="twitter:title" content="commit提交规范">
+<meta name="twitter:description" content="采用 Angular 的 commit 规范。不写 commit message 不允许提交代码。  commit 基本格式分为三部分：header、body 和 footer。header是必须的，body 和 footer 可以省略。">
 
 
 
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yanmeng.me/2017/08/13/我理解的-this/"/>
+  <link rel="canonical" href="http://yanmeng.me/2018/05/24/git-commit/"/>
 
 
 
 
 
-  <title>嗨， 你知道 this 吗？ | position_柚子君</title>
+  <title>commit提交规范 | position_柚子君</title>
   
 
 
@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yanmeng.me/2017/08/13/我理解的-this/">
+    <link itemprop="mainEntityOfPage" href="http://yanmeng.me/2018/05/24/git-commit/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Meng Yan">
@@ -293,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">嗨， 你知道 this 吗？</h1>
+          <h1 class="post-title" itemprop="name headline">commit提交规范</h1>
         
 
         <div class="post-meta">
@@ -305,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-13T13:52:39+08:00">
-                2017-08-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T23:19:28+08:00">
+                2018-05-24
               </time>
             
 
@@ -328,8 +328,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
+                  <a href="/categories/规范/" itemprop="url" rel="index">
+                    <span itemprop="name">规范</span>
                   </a>
                 </span>
 
@@ -345,7 +345,7 @@
 
           
           
-             <span id="/2017/08/13/我理解的-this/" class="leancloud_visitors" data-flag-title="嗨， 你知道 this 吗？">
+             <span id="/2018/05/24/git-commit/" class="leancloud_visitors" data-flag-title="commit提交规范">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -381,57 +381,97 @@
       
 
       
-        <p>在平时的代码中，相信大家经常用到 <code>this</code>，可是你真的明白此 <code>this</code> 真的是你认为的 <code>this</code> 吗？今天柚子君总结了一下平时用到的 <code>this</code> 的场景，大家走过路过不要错过啊～</p>
-<p>首先咱们先来看一下《JavaScript 高级程序设计》上是怎么说的。</p>
-<blockquote>
-<p><code>this</code> 对象是在运行时基于函数的执行环境绑定的：在全局函数中，<code>this</code> 等于 <code>windows</code>，而当函数被作为某个对象的方法调用时，<code>this</code> 等于那个对象。</p>
+        <blockquote>
+<p>采用 <a href="https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines" target="_blank" rel="external">Angular 的 commit 规范</a>。不写 <code>commit message</code> 不允许提交代码。</p>
 </blockquote>
-<p>还有一种情况，在《深入理解 ES6》一书中写道:</p>
-<blockquote>
-<p>如果箭头函数被非箭头函数包含，则 <code>this</code> 绑定的是最近一层非箭头函数的 <code>this</code>，<strong>且不能通过 <code>call()</code>、<code>apply()</code> 或 <code>bind()</code> 方法来改变 <code>this</code> 的值</strong>。</p>
-</blockquote>
-<a id="more"></a>
-<p>首先看一下非箭头函数的情况：</p>
-<h2 id="一、普通函数调用"><a href="#一、普通函数调用" class="headerlink" title="一、普通函数调用"></a>一、普通函数调用</h2><p>这是一个普通的函数声明，在这种情况下，<code>this</code> 是指向 <code>window</code> 的.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test = <span class="string">'哈哈哈'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">thisHandler</span>(<span class="params"></span>) </span>&#123;</div><div class="line"> <span class="built_in">console</span>.log(<span class="string">'test:'</span>,<span class="keyword">this</span>.test,<span class="string">'this:'</span>,<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line">thisHandler() <span class="comment">// test: 哈哈哈 this: window</span></div></pre></td></tr></table></figure></p>
-<p>其实上面的代码就相当于 <code>window</code> 调用 <code>thisHandler()</code>，所以这时 <code>this</code> 指向 <code>window</code>：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> b = <span class="string">'哈哈哈'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">thisHandler</span>(<span class="params"></span>) </span>&#123;</div><div class="line"> <span class="built_in">console</span>.log(<span class="string">'b:'</span>,<span class="keyword">this</span>.b,<span class="string">'this:'</span>,<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">window</span>.thisHandler() <span class="comment">// b: 哈哈哈 this: window</span></div></pre></td></tr></table></figure>
-<h2 id="二、作为对象的方法调用"><a href="#二、作为对象的方法调用" class="headerlink" title="二、作为对象的方法调用"></a>二、作为对象的方法调用</h2><p>当作为对象的方法被调用时，<code>this</code> 这时就指向调用它的对象。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> thisHandler = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">"柚子"</span>,</div><div class="line">  <span class="attr">test</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'my name:'</span>,<span class="keyword">this</span>.name);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">thisHandler.test() <span class="comment">// my name: 柚子</span></div></pre></td></tr></table></figure></p>
-<p>再来一个栗子🌰：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> thisHandler = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">"柚子"</span>,</div><div class="line">  <span class="attr">fn</span>: &#123;</div><div class="line">	<span class="attr">name</span>: <span class="string">'芒果'</span>,</div><div class="line">	<span class="attr">test</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">       <span class="built_in">console</span>.log(<span class="string">'my name:'</span>,<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">thisHandler.fn.test() <span class="comment">// my name: 芒果</span></div></pre></td></tr></table></figure>
-<p>这时 <code>this</code> 指向的是对象 <code>fn</code> 了，所以，关于对象调用这一点明白了吗，如果明白了，那没关系，接着看下一个强化题😏：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'柚子'</span></div><div class="line"><span class="keyword">var</span> thisHandler = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">"芒果"</span>,</div><div class="line">  <span class="attr">fn</span>: &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'糖果'</span>,</div><div class="line">	<span class="attr">test</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'my name:'</span>,<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> testHandler = thisHandler.fn.test</div><div class="line">testHandler()</div></pre></td></tr></table></figure></p>
-<p>🍭 这里是一秒钟分割线 🍭</p>
-<p>哒哒哒，答对了，这里的 <code>this</code> 指向的 <code>window</code>，那么这是为什么呢，哪位小盆友来回答一下。<br>举手：</p>
-<blockquote>
-<p>上面说到了，<code>this</code> 指向的是最后调用它的对象，第一步是赋值给了 <code>testHandler</code>，最后执行的那一句相当于 <code>window.testHandler()</code>。所以这里的 <code>this</code> 指向的是 <code>window</code>。最后输出的就是 <code>my name: 柚子</code>。</p>
-</blockquote>
-<p>哒哒哒，真聪明，来闯下一关～</p>
-<h2 id="三、构造函数的调用"><a href="#三、构造函数的调用" class="headerlink" title="三、构造函数的调用"></a>三、构造函数的调用</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'柚子'</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = <span class="string">'芒果'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> handlerA = <span class="keyword">new</span> Bar();</div><div class="line"><span class="built_in">console</span>.log(handlerA.name);  <span class="comment">// 芒果</span></div><div class="line"><span class="built_in">console</span>.log(name) <span class="comment">// 柚子</span></div></pre></td></tr></table></figure>
-<p>其实要明白为什么会是这样一个结果，咱们就要来聊聊 <code>new</code> 做了哪些事情。</p>
-<ul>
-<li>创建类的实例。这步是把一个空的对象的 <code>__proto__</code> 属性设置为 <code>Bar.prototype</code>。</li>
-<li>初始化实例。函数 <code>Bar</code> 被传入参数并调用，关键字 <code>this</code> 被设定为该实例。</li>
-<li>返回实例。</li>
-</ul>
-<p>弄明白了 <code>new</code> 的工作内容，自然而然的也明白了上面输出的原因。</p>
-<blockquote>
-<p><code>Bar()</code> 中的 <code>this</code> 指向对象 <code>handlerA</code>，并不是全局对象。</p>
-</blockquote>
-<h2 id="四、apply-call-调用"><a href="#四、apply-call-调用" class="headerlink" title="四、apply / call 调用"></a>四、apply / call 调用</h2><p>关于 <code>apply</code>，可以看一下 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="external">MDN 关于 <code>apply()</code> 方法的说明</a>。</p>
-<p>使用 <code>apply</code> 方法可以改变 <code>this</code>  的指向。如果这个函数处于非严格模式下，则指定为 null 或 undefined 时会自动指向全局对象（浏览器中就是window对象）。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'芒果'</span>;</div><div class="line"><span class="keyword">var</span> thisHandler = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">"柚子"</span>,</div><div class="line">  <span class="attr">test</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'my name:'</span>,<span class="keyword">this</span>.name);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">thisHandler.test(); <span class="comment">//  my name: 柚子</span></div><div class="line">thisHandler.test.apply(); <span class="comment">// my name: 芒果</span></div></pre></td></tr></table></figure>
-<p>下面是箭头函数的舞台～</p>
-<h2 id="四、箭头函数"><a href="#四、箭头函数" class="headerlink" title="四、箭头函数"></a>四、箭头函数</h2><p>在《深入理解 ES6》一书中可以知道箭头函数和普通函数的一个不同之处就在于 <code>this</code> 的绑定。</p>
-<blockquote>
-<p>箭头函数中没有 <code>this</code> 绑定，必须通过查找作用域链来决定其值。如果箭头函数被非箭头函数包含，则 <code>this</code> 绑定的是最近一层非箭头函数的 <code>this</code>；否则，<code>this</code> 的值会被设置为 <code>undefined</code>。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'柚子'</span></div><div class="line"><span class="keyword">var</span> thisHandler = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'芒果'</span>,</div><div class="line">  <span class="attr">test</span>:<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'my name:'</span>,<span class="keyword">this</span>.name,<span class="string">'this:'</span>,<span class="keyword">this</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">thisHandler.test(); <span class="comment">// my name: 柚子 this: Window</span></div></pre></td></tr></table></figure>
-<p>这时  <code>this</code>  不是指向 <code>thisHandler</code>，而是 <code>Window</code>。</p>
-<p>关于 <code>this</code> 的使用和体会还是要在平时运用中理解，先了解其原理，那么在使用的时候就如鱼得水啦。</p>
-<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><ul>
-<li><a href="https://qianlongo.github.io/2016/12/31/this-想说爱你不容易/#more" target="_blank" rel="external">谦龙的小天地</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html" target="_blank" rel="external">阮一峰的网络日志</a></li>
-</ul>
+<h2 id="commit-基本格式"><a href="#commit-基本格式" class="headerlink" title="commit 基本格式"></a>commit 基本格式</h2><p>分为三部分：<code>header</code>、<code>body</code> 和 <code>footer</code>。<br><code>header</code>是必须的，<code>body</code> 和 <code>footer</code> 可以省略。</p>
+<!--more>
 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</div><div class="line">// 空一行</div><div class="line">&lt;body&gt;</div><div class="line">// 空一行</div><div class="line">&lt;footer&gt;</div></pre></td></tr></table></figure>
+<h3 id="header"><a href="#header" class="headerlink" title="header"></a>header</h3><blockquote>
+<p><code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</code></p>
+</blockquote>
+<p>header 包含三个字段： type（必须）、scope（可选）和 subject（必须）</p>
+<h5 id="type"><a href="#type" class="headerlink" title="type"></a>type</h5><p>用于说明本次提交的类型，包含下面几种情况：</p>
+<ul>
+<li>feat：新增feature</li>
+<li>fix：修复 bug</li>
+<li>perf： 提高代码性能的更改</li>
+<li>docs： 仅仅修改了文档。如：README</li>
+<li>style： 仅仅修改了代码样式，并不改变代码逻辑。如：缩进、空格和逗号等。</li>
+<li>refactor： 代码重构。没有增加新功能，也没有修改 bug。</li>
+<li>test： 测试用例相关。</li>
+<li>build： 构建流程或者依赖库的变动。</li>
+<li>revert： 回滚到上一个版本</li>
+<li>deps: 升级依赖</li>
+</ul>
+<h5 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h5><p>用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。</p>
+<p>修改文件的范围（包括但不限于 doc, middleware, core, config, plugin）</p>
+<h5 id="subject"><a href="#subject" class="headerlink" title="subject"></a>subject</h5><p> 此次 commit 的简短描述。建议不超过 50 个字符。</p>
+<p><strong>常用表述语：</strong></p>
+<ul>
+<li>add 添加</li>
+<li>change 改变</li>
+<li>update 更新</li>
+<li>remove 移动</li>
+<li>delete 删除</li>
+</ul>
+<p><strong>注意：</strong> 使用第一人称现在时，比如使用 change 而不是 changed 或 changes。</p>
+<h3 id="body"><a href="#body" class="headerlink" title="body"></a>body</h3><p>针对本次 commit 的详细描述，可以多行。需要描述的信息包括：</p>
+<ul>
+<li>代码变动的动机</li>
+<li>与以前行为的对比</li>
+</ul>
+<h3 id="footer"><a href="#footer" class="headerlink" title="footer"></a>footer</h3><p>footer 的内容只会在以下两种情况的时候使用：</p>
+<h5 id="不兼容的变动"><a href="#不兼容的变动" class="headerlink" title="不兼容的变动"></a>不兼容的变动</h5><p>如果是和之前不兼容的变动，应该以 <code>BREAKING CHANGE</code> 为开头。比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 哪些被改变了</div><div class="line">BREAKING CHANGE: isolate scope bindings definition has changed and</div><div class="line">    the inject option for the directive controller injection was removed.</div><div class="line">    </div><div class="line">    To migrate the code follow the example below:</div><div class="line">    </div><div class="line">    Before:</div><div class="line">    </div><div class="line">    scope: &#123;</div><div class="line">      myAttr: &apos;attribute&apos;,</div><div class="line">      myBind: &apos;bind&apos;,</div><div class="line">      myExpression: &apos;expression&apos;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    After:</div><div class="line">    </div><div class="line">    scope: &#123;</div><div class="line">      myAttr: &apos;@&apos;,</div><div class="line">      myBind: &apos;@&apos;,</div><div class="line">      myExpression: &apos;&amp;&apos;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // 改变的原因</div><div class="line">    The removed `inject` wasn&apos;t generaly useful for directives so there should be no code using it.</div></pre></td></tr></table></figure></p>
+<h5 id="关闭-issue"><a href="#关闭-issue" class="headerlink" title="关闭 issue"></a>关闭 issue</h5><p>如果此次改动是为了关闭某个 issue，则可以在 footer 中关闭。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Closes #234</div></pre></td></tr></table></figure></p>
+<p>或者关闭多个 issue：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Closes #123, #245, #992</div></pre></td></tr></table></figure></p>
+<h3 id="revert"><a href="#revert" class="headerlink" title="revert"></a>revert</h3><p>如果 commit 用于撤销以前的 commit，则必须以 <code>revert:</code> 开头，后面跟着被撤销 Commit 的 Header。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">revert: feat(pencil): add &apos;graphiteWidth&apos; option</div><div class="line">This reverts commit 667ecc1654a317a13331b17617d973392f415f02.</div></pre></td></tr></table></figure></p>
+<p>body 的格式是固定的：<code>This reverts commit &lt;hash&gt;</code>。<code>hash</code> 是被撤销的 commit 的 SHA 标识符。</p>
+<h3 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h3><ol>
+<li>解决 bug：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">fix($compile): couple of unit tests for IE9</div><div class="line"></div><div class="line">Older IEs serialize html uppercased, but IE9 does not...</div><div class="line">Would be better to expect case insensitive, unfortunately jasmine does</div><div class="line">not allow to user regexps for throw expectations.</div><div class="line"></div><div class="line">Closes #392</div><div class="line">Breaks foo.bar api, foo.baz should be used instead</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2.修改标点符号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">style($location): add couple of missing semi colons</div></pre></td></tr></table></figure></p>
+<ol>
+<li>新增功能<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">feat($compile): simplify isolate scope bindings</div><div class="line"></div><div class="line">Changed the isolate scope binding options to:</div><div class="line">  - @attr - attribute binding (including interpolation)</div><div class="line">  - =model - by-directional model binding</div><div class="line">  - &amp;expr - expression execution binding</div><div class="line"></div><div class="line">This change simplifies the terminology as well as</div><div class="line">number of choices available to the developer. It</div><div class="line">also supports local name aliasing from the parent.</div><div class="line"></div><div class="line">BREAKING CHANGE: isolate scope bindings definition has changed and</div><div class="line">the inject option for the directive controller injection was removed.</div><div class="line"></div><div class="line">To migrate the code follow the example below:</div><div class="line"></div><div class="line">Before:</div><div class="line"></div><div class="line">scope: &#123;</div><div class="line">  myAttr: &apos;attribute&apos;,</div><div class="line">  myBind: &apos;bind&apos;</div><div class="line">&#125;</div><div class="line"></div><div class="line">After:</div><div class="line"></div><div class="line">scope: &#123;</div><div class="line">  myAttr: &apos;@&apos;,</div><div class="line">  myBind: &apos;@&apos;</div><div class="line">&#125;</div><div class="line"></div><div class="line">The removed `inject` wasn&apos;t generaly useful for directives so there should be no code using it.</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Git分支规范"><a href="#Git分支规范" class="headerlink" title="Git分支规范"></a>Git分支规范</h2><ul>
+<li>基本原则：master为保护分支，不直接在master上进行代码修改和提交。</li>
+<li>分支命名规范：<ul>
+<li>分支版本命名规则：分支类型<em>分支发布时间</em> 分支功能。比如：<code>feature_20170401_fairy_flower</code></li>
+<li>分支类型包括：<code>feature</code>、 <code>bugfix</code>、<code>refactor</code> 三种类型，即<code>新功能开发</code>、<code>bug 修复</code>和<code>代码重构</code></li>
+<li>时间使用年月日进行命名，不足 2 位补 0</li>
+<li>分支功能命名使用 <code>snake case</code> 命名法，即下划线命名。</li>
+</ul>
+</li>
+</ul>
+<h2 id="commit-工具流"><a href="#commit-工具流" class="headerlink" title="commit 工具流"></a>commit 工具流</h2><h4 id="commitizen"><a href="#commitizen" class="headerlink" title="commitizen"></a>commitizen</h4><p>全局安装 commitizen<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -g commitizen</div></pre></td></tr></table></figure></p>
+<p>然后，在项目目录里，运行下面的命令，使其支持 Angular 的 Commit message 格式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">commitizen init cz-conventional-changelog --save --save-exact</div></pre></td></tr></table></figure></p>
+<p>以后凡是用到 git commit 的地方都用 <code>git cz</code>。然后就会出现生成规范的 <code>git message</code> 的选项：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1561693-9989d20bb117b450.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="git-cz.jpeg"></p>
+<h4 id="validate-commit-msg"><a href="#validate-commit-msg" class="headerlink" title="validate-commit-msg"></a>validate-commit-msg</h4><p><code>validate-commit-msg</code> 用来检查 <code>commit message</code> 是否符合规范。</p>
+<p>1、安装 validate-commit-msg 依赖：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i validate-commit-msg -S</div></pre></td></tr></table></figure></p>
+<p>2、使用 githooks 来校验：</p>
+<p>安装 <a href="https://www.npmjs.com/package/husky">Husky</a> ：</p>
+<blockquote>
+<p>Husky 继承了 Git 下所有的钩子，在触发钩子的时候，Husky 可以阻止不合法的 commit, push 等等。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i Husky -S</div></pre></td></tr></table></figure>
+<p>配置参数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// package.json</span></div><div class="line"></div><div class="line">&#123;</div><div class="line">    <span class="string">"script"</span>: &#123;</div><div class="line">        <span class="string">"commitmsg"</span>: <span class="string">"validate-commit-msg"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>之后提交代码的时候可以用 <code>git cz</code> 来提交，有一个整体的流程来提醒你用规范的 commit message 来说明本次的提交信息。不过我建议还是用 <code>git commit -m &quot;message&quot;</code> 来提交，这样可以强制自己记住提交规范，不用依赖外部帮助，便于自己养成良好的习惯。</p>
+<h2 id="生成-change-log"><a href="#生成-change-log" class="headerlink" title="生成 change log"></a>生成 change log</h2><p>如果你的提交信息都符合 Angular 的规范，那么这些信息就会出现在 <code>change log</code> 里面。</p>
+<p>只有 <code>type</code> 为 <code>feat</code> 和 <code>fix</code> 的 <code>commit</code> 会出现在 <code>change log</code> 中，其他的不会出现，当然你也可以自己自定义。</p>
+<h5 id="如何生成-change-log"><a href="#如何生成-change-log" class="headerlink" title="如何生成 change log"></a>如何生成 change log</h5><p>安装依赖 <code>npm i conventional-changelog -S</code></p>
+<p>在 package.json 中配置下面的命令：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"script"</span>: &#123;</div><div class="line">      <span class="string">"changelog"</span>: <span class="string">"conventional-changelog -p angular -i CHANGELOG.md -s -r 0"</span></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后运行命令：<code>npm run changelog</code>。<code>CHANGELOG.md</code> 文件就会出现在你的项目根目录下面。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://eggjs.org/zh-cn/contributing.html">egg 代码贡献规范</a></li>
+<li><a href="https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines">Angular 规范</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html">阮一峰的 Commit message 和 Change log 编写指南</a></li>
+</ul>
+-->
       
     </div>
     
@@ -477,7 +517,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/git/" rel="tag"># git</a>
           
         </div>
       
@@ -490,8 +530,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/30/理解JavaScript原型/" rel="next" title="理解JavaScript原型">
-                <i class="fa fa-chevron-left"></i> 理解JavaScript原型
+              <a href="/2018/05/05/react-best-practices/" rel="next" title="未遵守 react 最佳实践而引发的 Bug">
+                <i class="fa fa-chevron-left"></i> 未遵守 react 最佳实践而引发的 Bug
               </a>
             
           </div>
@@ -499,10 +539,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/19/《深入理解 ES6》笔记 — 模块/" rel="prev" title="《深入理解 ES6》笔记 — 模块">
-                《深入理解 ES6》笔记 — 模块 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -682,7 +718,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、普通函数调用"><span class="nav-number">1.</span> <span class="nav-text">一、普通函数调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、作为对象的方法调用"><span class="nav-number">2.</span> <span class="nav-text">二、作为对象的方法调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、构造函数的调用"><span class="nav-number">3.</span> <span class="nav-text">三、构造函数的调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、apply-call-调用"><span class="nav-number">4.</span> <span class="nav-text">四、apply / call 调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、箭头函数"><span class="nav-number">5.</span> <span class="nav-text">四、箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考："><span class="nav-number">5.0.1.</span> <span class="nav-text">参考：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#commit-基本格式"><span class="nav-number">1.</span> <span class="nav-text">commit 基本格式</span></a></li></ol></div>
             
 
           </div>
