@@ -101,10 +101,12 @@
 <meta property="og:url" content="http://yanmeng.me/2018/05/24/git-commit/index.html">
 <meta property="og:site_name" content="position_柚子君">
 <meta property="og:description" content="采用 Angular 的 commit 规范。不写 commit message 不允许提交代码。  commit 基本格式分为三部分：header、body 和 footer。header是必须的，body 和 footer 可以省略。">
-<meta property="og:updated_time" content="2018-05-24T15:21:32.822Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1561693-9989d20bb117b450.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-05-24T15:22:39.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="commit提交规范">
 <meta name="twitter:description" content="采用 Angular 的 commit 规范。不写 commit message 不允许提交代码。  commit 基本格式分为三部分：header、body 和 footer。header是必须的，body 和 footer 可以省略。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1561693-9989d20bb117b450.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -385,8 +387,7 @@
 <p>采用 <a href="https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines" target="_blank" rel="external">Angular 的 commit 规范</a>。不写 <code>commit message</code> 不允许提交代码。</p>
 </blockquote>
 <h2 id="commit-基本格式"><a href="#commit-基本格式" class="headerlink" title="commit 基本格式"></a>commit 基本格式</h2><p>分为三部分：<code>header</code>、<code>body</code> 和 <code>footer</code>。<br><code>header</code>是必须的，<code>body</code> 和 <code>footer</code> 可以省略。</p>
-<!--more>
-
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</div><div class="line">// 空一行</div><div class="line">&lt;body&gt;</div><div class="line">// 空一行</div><div class="line">&lt;footer&gt;</div></pre></td></tr></table></figure>
 <h3 id="header"><a href="#header" class="headerlink" title="header"></a>header</h3><blockquote>
 <p><code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</code></p>
@@ -454,7 +455,7 @@
 <h4 id="validate-commit-msg"><a href="#validate-commit-msg" class="headerlink" title="validate-commit-msg"></a>validate-commit-msg</h4><p><code>validate-commit-msg</code> 用来检查 <code>commit message</code> 是否符合规范。</p>
 <p>1、安装 validate-commit-msg 依赖：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i validate-commit-msg -S</div></pre></td></tr></table></figure></p>
 <p>2、使用 githooks 来校验：</p>
-<p>安装 <a href="https://www.npmjs.com/package/husky">Husky</a> ：</p>
+<p>安装 <a href="https://www.npmjs.com/package/husky" target="_blank" rel="external">Husky</a> ：</p>
 <blockquote>
 <p>Husky 继承了 Git 下所有的钩子，在触发钩子的时候，Husky 可以阻止不合法的 commit, push 等等。</p>
 </blockquote>
@@ -467,11 +468,11 @@
 <p>在 package.json 中配置下面的命令：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"script"</span>: &#123;</div><div class="line">      <span class="string">"changelog"</span>: <span class="string">"conventional-changelog -p angular -i CHANGELOG.md -s -r 0"</span></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>然后运行命令：<code>npm run changelog</code>。<code>CHANGELOG.md</code> 文件就会出现在你的项目根目录下面。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://eggjs.org/zh-cn/contributing.html">egg 代码贡献规范</a></li>
-<li><a href="https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines">Angular 规范</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html">阮一峰的 Commit message 和 Change log 编写指南</a></li>
+<li><a href="https://eggjs.org/zh-cn/contributing.html" target="_blank" rel="external">egg 代码贡献规范</a></li>
+<li><a href="https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines" target="_blank" rel="external">Angular 规范</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" target="_blank" rel="external">阮一峰的 Commit message 和 Change log 编写指南</a></li>
 </ul>
--->
+
       
     </div>
     
@@ -539,6 +540,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/27/blog-server/" rel="prev" title="建站全记录（一）在 Ubuntu16.04.1 服务器上搭建 LNMP 服务">
+                建站全记录（一）在 Ubuntu16.04.1 服务器上搭建 LNMP 服务 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -615,7 +620,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -637,7 +642,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -718,7 +723,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#commit-基本格式"><span class="nav-number">1.</span> <span class="nav-text">commit 基本格式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#commit-基本格式"><span class="nav-number">1.</span> <span class="nav-text">commit 基本格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#header"><span class="nav-number">1.1.</span> <span class="nav-text">header</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#type"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">type</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#scope"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">scope</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#subject"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">subject</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#body"><span class="nav-number">1.2.</span> <span class="nav-text">body</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#footer"><span class="nav-number">1.3.</span> <span class="nav-text">footer</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#不兼容的变动"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">不兼容的变动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关闭-issue"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">关闭 issue</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#revert"><span class="nav-number">1.4.</span> <span class="nav-text">revert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栗子"><span class="nav-number">1.5.</span> <span class="nav-text">栗子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git分支规范"><span class="nav-number">2.</span> <span class="nav-text">Git分支规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commit-工具流"><span class="nav-number">3.</span> <span class="nav-text">commit 工具流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#commitizen"><span class="nav-number">3.0.1.</span> <span class="nav-text">commitizen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#validate-commit-msg"><span class="nav-number">3.0.2.</span> <span class="nav-text">validate-commit-msg</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成-change-log"><span class="nav-number">4.</span> <span class="nav-text">生成 change log</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何生成-change-log"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">如何生成 change log</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">4.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
             
 
           </div>
